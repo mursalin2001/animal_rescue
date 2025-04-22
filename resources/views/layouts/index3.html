@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Dropdown </title>
+</head>
+<body>
+  <h3>ঠিকানা নির্বাচন করুন</h3>
+
+  <label for="division">বিভাগ</label>
+  <select id="division" onchange="loadDistricts()">
+    <option selected disabled>বিভাগ নির্বাচন করুন</option>
+  </select>
+
+  <label for="district">জেলা</label>
+  <select id="district" onchange="loadUpazilas()">
+    <option selected disabled>জেলা নির্বাচন করুন</option>
+  </select>
+
+  <label for="upazila">উপজেলা</label>
+  <select id="upazila">
+    <option selected disabled>উপজেলা নির্বাচন করুন</option>
+  </select>
+
+  <script>
+    let divisions = [], districts = [], upazilas = [];
+
+    // Load all JSON data on page load
+    window.onload = async function () {
+      try {
+        const [divRes, distRes, upzRes] = await Promise.all([
+          fetch('/public/bd/bd-divisions.json'),
+          fetch('/public/bd/bd-districts.json'),
+          fetch('/public/bd/bd-upazilas.json')
+        ]);
+
+        divisions = await divRes.json();
+        districts = await distRes.json();
+        upazilas = await upzRes.json();
+
+        populateDropdown(document.getElementById('division'), divisions, 'id', 'name', 'বিভাগ নির্বাচন করুন');
+      } catch (error) {
+        console.error("Error loading data:", error);
+      }
+    };
+
+    function populateDropdown(selectElement, dataList, valueKey, textKey, placeholder) {
+      selectElement.innerHTML = `<option disabled selected>${placeholder}</option>`;
+      dataList.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item[valueKey];
+        option.textContent = item[textKey];
+        selectElement.appendChild(option);
+      });
+    }
+
+    function loadDistricts() {
+      const selectedDivisionId = document.getElementById('division').value;
+      const filteredDistricts = districts.filter(dist => dist.division_id == selectedDivisionId);
+      populateDropdown(document.getElementById('district'), filteredDistricts, 'id', 'name', 'জেলা নির্বাচন করুন');
+      // Reset upazila
+      document.getElementById('upazila').innerHTML = '<option disabled selected>উপজেলা নির্বাচন করুন</option>';
+    }
+
+    function loadUpazilas() {
+      const selectedDistrictId = document.getElementById('district').value;
+      const filteredUpazilas = upazilas.filter(upz => upz.district_id == selectedDistrictId);
+      populateDropdown(document.getElementById('upazila'), filteredUpazilas, 'id', 'name', 'উপজেলা নির্বাচন করুন');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RescuePaws App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1e1e1e',
+            darker: '#121212',
+            primary: '#f97316',
+            card: '#2a2a2a'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body class="bg-darker text-white min-h-screen flex flex-col transition-all duration-300">
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-1 overflow-y-auto pb-24 px-4">
+
+    <!-- Sections -->
+    <section class="mt-6" id="feed">
+        <div class="p-4 bg-card rounded-xl shadow-md transition-all duration-300 hover:scale-[1.02]">
+          <h2 class="text-lg font-bold text-primary flex items-center gap-2"><i class="fas fa-rss"></i> Rescue Feed</h2>
+          <p class="text-sm text-gray-300 mt-1 mb-4">Latest rescue updates and activities.</p>
+
+          <!-- Animal Profile Card -->
+          <div class="bg-[#2a2a2a] rounded-lg overflow-hidden shadow-md transition hover:scale-[1.01]">
+            <img class="w-full h-52 object-cover" src="https://placekitten.com/500/300" alt="Animal Photo">
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-white flex items-center gap-2">
+                🐶 Max
+                <span class="text-xs bg-red-500 text-white px-2 py-0.5 rounded-full">Urgent</span>
+              </h3>
+              <p class="text-sm text-gray-400 mt-1">2-year-old male dog found injured near Pine Street. Needs immediate medical help.</p>
+
+              <div class="grid grid-cols-2 gap-4 mt-4 text-sm text-gray-300">
+                <div>
+                  <span class="block text-gray-500">Species</span>
+                  Dog
+                </div>
+                <div>
+                  <span class="block text-gray-500">Breed</span>
+                  Mixed
+                </div>
+                <div>
+                  <span class="block text-gray-500">Status</span>
+                  Needs Vet
+                </div>
+                <div>
+                  <span class="block text-gray-500">Location</span>
+                  📍 Pine Street
+                </div>
+              </div>
+
+              <div class="mt-6 flex justify-between items-center">
+                <button class="px-4 py-2 text-sm font-semibold bg-primary text-white rounded hover:bg-orange-500 transition">Offer Help</button>
+                <a href="tel:+123456789" class="text-sm text-blue-400 hover:underline">📞 Contact</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+    <section class="mt-6">
+      <div class="p-4 bg-card rounded-xl shadow-md transition-all duration-300 hover:scale-[1.02]">
+        <h2 class="text-lg font-bold text-primary flex items-center gap-2"><i class="fas fa-rss"></i> Rescue Feed</h2>
+        <p class="text-sm text-gray-300 mt-1">Latest rescue updates and activities.</p>
+      </div>
+    </section>
+
+    <section class="mt-6">
+      <div class="p-4 bg-card rounded-xl shadow-md transition-all duration-300 hover:scale-[1.02]">
+        <h2 class="text-lg font-bold text-primary flex items-center gap-2"><i class="fas fa-heart"></i> Happy Tails</h2>
+        <p class="text-sm text-gray-300 mt-1">Read inspiring stories of rescues and adoptions.</p>
+      </div>
+    </section>
+
+    <section class="mt-6">
+      <div class="p-4 bg-card rounded-xl shadow-md transition-all duration-300 hover:scale-[1.02]">
+        <h2 class="text-lg font-bold text-red-500 flex items-center gap-2"><i class="fas fa-bug"></i> Report Sighting</h2>
+        <p class="text-sm text-gray-300 mt-1">Spotted an animal in danger? Report it now.</p>
+      </div>
+    </section>
+
+    <section class="mt-6">
+      <div class="p-4 bg-card rounded-xl shadow-md transition-all duration-300 hover:scale-[1.02]">
+        <h2 class="text-lg font-bold text-green-400 flex items-center gap-2"><i class="fas fa-hands-helping"></i> Join as Volunteer</h2>
+        <p class="text-sm text-gray-300 mt-1">Become a part of our rescue family.</p>
+      </div>
+    </section>
+
+    <section class="mt-6">
+      <div class="p-4 bg-card rounded-xl shadow-md transition-all duration-300 hover:scale-[1.02]">
+        <h2 class="text-lg font-bold text-blue-400 flex items-center gap-2"><i class="fas fa-stethoscope"></i> Animal Care Tips</h2>
+        <p class="text-sm text-gray-300 mt-1">Vet-approved advice for animal emergencies.</p>
+      </div>
+    </section>
+
+    <section class="mt-6">
+      <div class="p-4 bg-card rounded-xl shadow-md transition-all duration-300 hover:scale-[1.02]">
+        <h2 class="text-lg font-bold text-purple-400 flex items-center gap-2"><i class="fas fa-paw"></i> Adopt Me</h2>
+        <p class="text-sm text-gray-300 mt-1">Animals ready for loving homes.</p>
+      </div>
+    </section>
+
+    <section class="mt-6 mb-24">
+      <div class="p-4 bg-card rounded-xl shadow-md transition-all duration-300 hover:scale-[1.02]">
+        <h2 class="text-lg font-bold text-pink-400 flex items-center gap-2"><i class="fas fa-donate"></i> Donate</h2>
+        <p class="text-sm text-gray-300 mt-1">Support our cause and save more lives.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTTOM NAVBAR -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-card border-t border-gray-700 shadow-inner z-50">
+    <div class="flex justify-around py-2 text-xs text-gray-300">
+      <a href="#alert" class="flex flex-col items-center hover:text-primary transition"><i class="fas fa-exclamation-circle text-lg"></i><span>Alert</span></a>
+      <a href="#feed" class="flex flex-col items-center hover:text-primary transition"><i class="fas fa-rss text-lg"></i><span>Feed</span></a>
+      <a href="#stories" class="flex flex-col items-center hover:text-primary transition"><i class="fas fa-heart text-lg"></i><span>Stories</span></a>
+      <a href="#report" class="flex flex-col items-center hover:text-red-500 transition"><i class="fas fa-bug text-lg"></i><span>Report</span></a>
+      <a href="#volunteer" class="flex flex-col items-center hover:text-green-400 transition"><i class="fas fa-hands-helping text-lg"></i><span>Help</span></a>
+    </div>
+  </nav>
+
+</body>
+</html>
