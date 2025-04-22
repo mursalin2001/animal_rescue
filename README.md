@@ -1,4 +1,4 @@
-<p align="center"><a href="https://social.sjcvaipur.in" target="_blank"><img src="https://i.ibb.co/7nDB1kD/Pics-Art-06-14-08-24-08.png" width="180"></a></p>
+<!-- <p align="center"><a href="https://social.sjcvaipur.in" target="_blank"><img src="https://i.ibb.co/7nDB1kD/Pics-Art-06-14-08-24-08.png" width="180"></a></p>
 
 <h1 align="center">Simple Social Media</h1>
 
@@ -18,7 +18,7 @@ The [project demo](https://social.w3net.space) is hosted for FREE 💝 on [Wexro
 
 A very Simple Social media web application built with laravel Jetstream and livewire.
 
-The application is designed and tested to use conveniently without any issues.
+The application is designed and tested to use conveniently without any issues. -->
 
 ## Features
 
