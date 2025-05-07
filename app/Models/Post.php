@@ -19,6 +19,11 @@ class Post extends Model
      */
     protected $fillable = [
         'user_id',
+        'animal_age',
+        'animal_type',
+        'animal_condition',
+        'contact_number',
+        'upazila',
         'title',
         'location',
         'body',

@@ -83,7 +83,7 @@
                         </div>
                         <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
                         <div class="flex space-x-3 text-sm font-medium">
-                            <div class="flex-auto flex space-x-3">
+                            {{-- <div class="flex-auto flex space-x-3">
                                 <button
                                     class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 "
                                     wire:click="incrementLike({{ $post->id }})" wire:offline.class="text-gray-400 hover:text-gray-500" wire:offline.attr="disabled">
@@ -102,12 +102,12 @@
                                     @endif
                                     <span>{{ $post->likes_count }}</span>
                                 </button>
-                            </div>
-                            <button
+                            </div> --}}
+                            {{-- <button
                                 class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full hover:bg-gray-800"
                                 wire:click="comments({{ $post->id }})"
                                 wire:offline.attr="disabled"
-                                type="button" aria-label="like">{{ $post->comments_count }} Comments</button>
+                                type="button" aria-label="like">{{ $post->comments_count }} Comments</button> --}}
                         </div>
                     </div>
                 </div>

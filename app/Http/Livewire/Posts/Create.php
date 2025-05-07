@@ -13,7 +13,11 @@ class Create extends Component
     use WithFileUploads;
 
     public $title;
-
+    public $animal_age;
+    public $upazila;
+    public $animal_type;
+    public $animal_condition;
+    public $contact_number;
     public $body;
 
     public $file;
@@ -47,6 +51,11 @@ class Create extends Component
     {
         $data = $this->validate([
             'title' => 'required|max:50',
+            'animal_age' => 'required|string',
+            'animal_type' => 'required|string',
+            'animal_condition' => 'required|string',
+            'contact_number' => ['required', 'regex:/^(01)[0-9]{9}$/'],
+            'upazila' => 'required|string',
             'location' => 'nullable|string|max:60',
             'body' => 'required|max:1000',
             'file' => 'nullable|mimes:' . implode(',', array_merge($this->imageFormats, $this->videoFormats)) . '|max:2048',
@@ -54,6 +63,11 @@ class Create extends Component
 
         $post = Post::create([
             'user_id' => auth()->id(),
+            'animal_age' => $data['animal_age'],
+            'animal_type' => $data['animal_type'],
+            'contact_number' => $data['contact_number'],
+            'animal_condition' => $data['animal_condition'],
+            'upazila' => $data['upazila'],
             'title' => $data['title'],
             'location' => $data['location'],
             'body' => $data['body'],
