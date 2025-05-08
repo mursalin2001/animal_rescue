@@ -55,10 +55,17 @@
                                 </a>
                             </div>
 
+<<<<<<< HEAD
                             <h2 class="flex-auto text-lg font-medium">{{ $post->title }}</h2>
                         </div>
 
                           <p class="mt-3">{{ $post->body }}</p>
+=======
+                            <h2 class="flex-auto text-lg font-medium">{{ $post->animal_type }}</h2>
+                        </div>
+
+                          <p class="mt-3">{{ $post->description }}</p>
+>>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
 
                         <div class="flex py-4  text-sm text-gray-600">
                             <div class="flex-1 inline-flex items-center">
@@ -70,7 +77,11 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
+<<<<<<< HEAD
                                 <p class="">{{ (!empty($post->location)) ? $post->location : 'Unknown' }}</p>
+=======
+                                <p class="">{{ (!empty($post->upazila)) ? $post->upazila : 'Unknown' }}, {{$post->exact_location}}</p>
+>>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
                             </div>
                             <div class="flex-1 inline-flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
@@ -81,8 +92,22 @@
                                 <p class="">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</p>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
                         <div class="flex space-x-3 text-sm font-medium">
+=======
+
+                        <div class="flex mt-6 mb-4 p-4 pb-2 border-t border-gray-200 "></div>
+                        <div class="flex space-x-3 text-sm font-medium">
+                            <a 
+                                href="https://www.google.com/maps/search/?api=1&query={{ $post->latitude }},{{ $post->longitude }}" 
+                                target="_blank" 
+                                class="inline-flex items-center px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+                            >
+                                <i class="fas fa-map-marker-alt mr-2"></i> See Live Location
+                            </a>
+
+>>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
                             {{-- <div class="flex-auto flex space-x-3">
                                 <button
                                     class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 "

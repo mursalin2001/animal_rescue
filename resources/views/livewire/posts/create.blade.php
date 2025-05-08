@@ -52,13 +52,23 @@
 
             <div>
                 <x-jet-label for="animal_number" value="{{ __('Number Of Animals') }}" />
+<<<<<<< HEAD
                 <x-jet-input id="animal_number" class="block mt-1 mb-2 w-full" type="text" wire:model.lazy="title" />
+=======
+                <x-jet-input id="animal_number" class="block mt-1 mb-2 w-full" type="text"
+                    wire:model.lazy="animal_number" />
+>>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
             </div>
 
 
             <div>
                 <x-jet-label for="exact_location" value="{{ __('Exact Spot Details') }}" />
+<<<<<<< HEAD
                 <x-jet-input id="exact_location" class="block mt-1 w-full" type="text" wire:model.lazy="location" />
+=======
+                <x-jet-input id="exact_location" class="block mt-1 w-full" type="text"
+                    wire:model.lazy="exact_location" />
+>>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
             </div>
 
             <div class="relative">
@@ -71,9 +81,17 @@
                 <input type="text" wire:model="contact_number" id="contact_number"
                     class="bg-gray-100 border-2 w-full p-2 rounded-lg @error('contact_number') border-red-500 @enderror"
                     placeholder="01XXXXXXXXX">
+<<<<<<< HEAD
                 @error('contact_number') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
             
+=======
+                @error('contact_number')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+
+>>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
 
             {{-- live location --}}
             <div class="mt-4">
@@ -85,7 +103,11 @@
                 <input type="hidden" wire:model.lazy="latitude">
                 <input type="hidden" wire:model.lazy="longitude">
             </div>
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
 
             <div class="mt-4">
                 <x-jet-label for="description" value="{{ __('Additional Notes') }}" />
@@ -94,7 +116,11 @@
                     wire:model.lazy="description"> </textarea>
             </div>
 
+<<<<<<< HEAD
            
+=======
+
+>>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
 
             @if ($file)
                 <div class="mt-4">
@@ -103,8 +129,13 @@
                     @if (in_array($file->extension(), $this->imageFormats))
                         <img class="p-3 h-32" src="{{ $file->temporaryUrl() }}" oncontextmenu="return false;">
                     @elseif(in_array($file->extension(), $this->videoFormats))
+<<<<<<< HEAD
                         <video controls crossorigin playsinline oncontextmenu="return false;"
                             controlsList="nodownload" class="rounded-lg filter">
+=======
+                        <video controls crossorigin playsinline oncontextmenu="return false;" controlsList="nodownload"
+                            class="rounded-lg filter">
+>>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
                             <!-- Video files -->
                             <source src="{{ $file->temporaryUrl() }}" type="video/{{ $file->extension() }}"
                                 size="576">
@@ -150,8 +181,15 @@
 
         </form>
 
+<<<<<<< HEAD
        <script src="{{ asset('scripts.js') }}"></script>
 
     </div>
 </div>
 
+=======
+        <script src="{{ asset('scripts.js') }}"></script>
+
+    </div>
+</div>
+>>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
