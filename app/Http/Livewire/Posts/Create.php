@@ -19,6 +19,7 @@ class Create extends Component
     public $animal_condition;
     public $contact_number;
     public $body;
+    public $latitude, $longitude;
 
     public $file;
 
@@ -50,14 +51,16 @@ class Create extends Component
     public function submit()
     {
         $data = $this->validate([
-            'title' => 'required|max:50',
+            'animal_number' => 'required|max:50',
             'animal_age' => 'required|string',
             'animal_type' => 'required|string',
             'animal_condition' => 'required|string',
             'contact_number' => ['required', 'regex:/^(01)[0-9]{9}$/'],
+            'latitude' => 'string|nullable',
+            'longitude' => 'string|nullable',
             'upazila' => 'required|string',
-            'location' => 'nullable|string|max:60',
-            'body' => 'required|max:1000',
+            'exact_location' => 'nullable|string|max:60',
+            'description' => 'nullable|max:1000',
             'file' => 'nullable|mimes:' . implode(',', array_merge($this->imageFormats, $this->videoFormats)) . '|max:2048',
         ]);
 
@@ -68,9 +71,11 @@ class Create extends Component
             'contact_number' => $data['contact_number'],
             'animal_condition' => $data['animal_condition'],
             'upazila' => $data['upazila'],
-            'title' => $data['title'],
-            'location' => $data['location'],
-            'body' => $data['body'],
+            'latitude' => $data['latitude'],
+            'longitude' => $data['longitude'],
+            'animal_number' => $data['animal_number'],
+            'exact_location' => $data['location'],
+            'description' => $data['description'],
         ]);
 
         $this->storeFiles($post);

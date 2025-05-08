@@ -49,28 +49,21 @@
                 </select>
             </div>
 
+
+            <div>
+                <x-jet-label for="animal_number" value="{{ __('Number Of Animals') }}" />
+                <x-jet-input id="animal_number" class="block mt-1 mb-2 w-full" type="text" wire:model.lazy="title" />
+            </div>
+
+
+            <div>
+                <x-jet-label for="exact_location" value="{{ __('Exact Spot Details') }}" />
+                <x-jet-input id="exact_location" class="block mt-1 w-full" type="text" wire:model.lazy="location" />
+            </div>
+
             <div class="relative">
                 <x-jet-label for="upazila" value="{{ __('Upazila') }}" />
                 <x-jet-input id="upazila" class="block mt-1 mb-2 w-full" type="text" wire:model.lazy="upazila" />
-            </div>
-
-
-
-            <div>
-                <x-jet-label for="title" value="{{ __('Title') }}" />
-                <x-jet-input id="title" class="block mt-1 mb-2 w-full" type="text" wire:model.lazy="title" />
-            </div>
-
-            <div>
-                <x-jet-label for="location" value="{{ __('Exact Spot Details') }}" />
-                <x-jet-input id="location" class="block mt-1 w-full" type="text" wire:model.lazy="location" />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="body" value="{{ __('Additional Information') }}" />
-                <textarea rows="5"
-                    class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow"
-                    wire:model.lazy="body"> </textarea>
             </div>
 
             <div>
@@ -92,6 +85,16 @@
                 <input type="hidden" wire:model.lazy="latitude">
                 <input type="hidden" wire:model.lazy="longitude">
             </div>
+            
+
+            <div class="mt-4">
+                <x-jet-label for="description" value="{{ __('Additional Notes') }}" />
+                <textarea rows="5"
+                    class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow"
+                    wire:model.lazy="description"> </textarea>
+            </div>
+
+           
 
             @if ($file)
                 <div class="mt-4">

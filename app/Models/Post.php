@@ -24,9 +24,11 @@ class Post extends Model
         'animal_condition',
         'contact_number',
         'upazila',
-        'title',
-        'location',
-        'body',
+        'latitude',
+        'longitude',
+        'animal_number',
+        'exact_location',
+        'description',
     ];
 
     public function postImages()
