@@ -10,27 +10,55 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <label class="block text-sm font-semibold mb-1" for="name">
+                    <i class="fas fa-user text-purple-500 mr-2"></i> Full Name
+                </label>
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
             
             <div class="mt-4">
-                <x-jet-label for="username" value="{{ __('Username') }}" />
+                <label class="block text-sm font-semibold mb-1" for="name">
+                    <i class="fas fa-user text-blue-500 mr-2"></i> Username
+                </label>
                 <x-jet-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required />
             </div>
             
             <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <label class="block text-sm font-semibold mb-1" for="email">
+                    <i class="fas fa-envelope text-yellow-500 mr-2"></i> Email
+                </label>
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
+
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <label class="block text-sm font-semibold mb-1" for="phone">
+                    <i class="fas fa-phone-alt text-green-500 mr-2"></i> Phone
+                </label>
+                <x-jet-input id="phone" class="block mt-1 w-full" type="text" name="phone"  required />
+            </div>
+
+
+
+            <div class="mt-4">
+                <label class="block text-sm font-semibold mb-1" for="address">
+                    <i class="fas fa-map-marker-alt text-red-500 mr-2"></i> Address
+                    <span class="text-gray-600 text-sm">(Hometown, Upazila)</span>
+                </label>
+                <x-jet-input id="upazila" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required />
+            </div>
+
+            <div class="mt-4">
+                <label class="block text-sm font-semibold mb-1" for="password">
+                    <i class="fas fa-lock text-yellow-500 mr-2"></i> Password
+                </label>
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <label class="block text-sm font-semibold mb-1" for="confirm_password">
+                    <i class="fas fa-lock-open text-green-500 mr-2"></i> Confirm Password
+                </label>
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
@@ -60,6 +88,7 @@
                     {{ __('Register') }}
                 </x-jet-button>
             </div>
+        <script src="{{ asset('scripts.js') }}"></script>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>

@@ -1,16 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-<<<<<<< HEAD
-use Illuminate\Http\Request;
-
-use App\Models\volunteer;
-=======
 
 use Illuminate\Http\Request;
 use App\Models\volunteer;
 use Exception;
->>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
 
 class InfoPageController extends Controller
 {
@@ -29,15 +23,6 @@ class InfoPageController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
-<<<<<<< HEAD
-            'phone' => 'required',
-            'address' => 'required',
-        ]);
-
-        volunteer::create($request->all());
-
-        return redirect()->back()->with('success', 'Application submitted successfully!');
-=======
             'phone' => ['required', 'regex:/^(01)[0-9]{9}$/'],
             'address' => 'required|string|max:255',
         ]);
@@ -56,7 +41,6 @@ class InfoPageController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->withErrors(['submission' => 'Something went wrong. Please try again later.']);
         }
->>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
     }
 
     public function careTips()

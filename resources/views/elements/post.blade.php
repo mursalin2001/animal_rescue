@@ -1,5 +1,5 @@
 <div class="flex flex-col mx-2 my-5 md:mx-6 md:my-12 lg:my-12 lg:w-2/5 lg:mx-auto">
-            <div class="bg-white shadow-md  rounded-3xl p-4">
+       <div class="bg-white shadow-md  rounded-3xl p-4">
                 <div class="flex-none">
                     <div class="h-full w-full  mb-3 filter" wire:offline.class="grayscale">
                     	@foreach($post->postImages as $media)
@@ -20,7 +20,7 @@
                         @endforeach
                     </div>
                     <div class="flex-auto ml-3 justify-evenly py-2" wire:offline.class="text-gray-400">
-                    @can('delete', $post)
+                        @can('delete', $post)
                     	<button
 							id="delete_{{ $post->id }}"
 							wire:click="showDeletePostModal({{ $post->id }})"
@@ -55,17 +55,10 @@
                                 </a>
                             </div>
 
-<<<<<<< HEAD
-                            <h2 class="flex-auto text-lg font-medium">{{ $post->title }}</h2>
-                        </div>
-
-                          <p class="mt-3">{{ $post->body }}</p>
-=======
                             <h2 class="flex-auto text-lg font-medium">{{ $post->animal_type }}</h2>
                         </div>
 
                           <p class="mt-3">{{ $post->description }}</p>
->>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
 
                         <div class="flex py-4  text-sm text-gray-600">
                             <div class="flex-1 inline-flex items-center">
@@ -77,11 +70,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
-<<<<<<< HEAD
-                                <p class="">{{ (!empty($post->location)) ? $post->location : 'Unknown' }}</p>
-=======
                                 <p class="">{{ (!empty($post->upazila)) ? $post->upazila : 'Unknown' }}, {{$post->exact_location}}</p>
->>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
                             </div>
                             <div class="flex-1 inline-flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
@@ -92,10 +81,6 @@
                                 <p class="">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</p>
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                        <div class="flex space-x-3 text-sm font-medium">
-=======
 
                         <div class="flex mt-6 mb-4 p-4 pb-2 border-t border-gray-200 "></div>
                         <div class="flex space-x-3 text-sm font-medium">
@@ -107,7 +92,6 @@
                                 <i class="fas fa-map-marker-alt mr-2"></i> See Live Location
                             </a>
 
->>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
                             {{-- <div class="flex-auto flex space-x-3">
                                 <button
                                     class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 "

@@ -12,20 +12,6 @@ class Create extends Component
 {
     use WithFileUploads;
 
-<<<<<<< HEAD
-    public $title;
-    public $animal_age;
-    public $upazila;
-    public $animal_type;
-    public $animal_condition;
-    public $contact_number;
-    public $body;
-    public $latitude, $longitude;
-
-    public $file;
-
-    public $location;
-=======
     protected $listeners = ['setLocation'];
 
     public $location;
@@ -40,7 +26,6 @@ class Create extends Component
     public $description;
     public $file;
 
->>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
 
     public $imageFormats = ['jpg', 'png', 'gif', 'jpeg'];
 
@@ -58,8 +43,6 @@ class Create extends Component
         }
     }
 
-<<<<<<< HEAD
-=======
     public function setLocation($latitude, $longitude)
 {
     $this->latitude = $latitude;
@@ -67,7 +50,6 @@ class Create extends Component
 }
 
 
->>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
     public function updatedFile()
     {
         $this->validate([
@@ -78,22 +60,13 @@ class Create extends Component
     public function submit()
     {
         $data = $this->validate([
-<<<<<<< HEAD
-            'animal_number' => 'required|max:50',
-=======
             'animal_number' => 'nullable|string|max:50',
->>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
             'animal_age' => 'required|string',
             'animal_type' => 'required|string',
             'animal_condition' => 'required|string',
             'contact_number' => ['required', 'regex:/^(01)[0-9]{9}$/'],
-<<<<<<< HEAD
-            'latitude' => 'string|nullable',
-            'longitude' => 'string|nullable',
-=======
             'latitude' => 'nullable',
             'longitude' => 'nullable',
->>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
             'upazila' => 'required|string',
             'exact_location' => 'nullable|string|max:60',
             'description' => 'nullable|max:1000',
@@ -110,11 +83,7 @@ class Create extends Component
             'latitude' => $data['latitude'],
             'longitude' => $data['longitude'],
             'animal_number' => $data['animal_number'],
-<<<<<<< HEAD
-            'exact_location' => $data['location'],
-=======
             'exact_location' => $data['exact_location'],
->>>>>>> 68991e3 (Animal Display and Volunteer form balidation complete)
             'description' => $data['description'],
         ]);
 
