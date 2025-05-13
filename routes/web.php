@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AssignmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/pages/virtualAssistant', [App\Http\Controllers\InfoPageController::class, 'virtualAssistant'])->name('pages.virtualAssistant');
     Route::get('/pages/volunteer', [App\Http\Controllers\InfoPageController::class, 'volunteer'])->name('pages.volunteer');
     Route::get('/pages/careTips', [App\Http\Controllers\InfoPageController::class, 'careTips'])->name('pages.careTips');
+
+
+
+    Route::post('/posts/{id}/update-status', [AssignmentController::class, 'updateStatus'])->name('posts.updateStatus');
 
 
 

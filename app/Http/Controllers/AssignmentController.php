@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 
 
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 use App\Models\Post;
 use App\Models\users;
@@ -19,6 +21,20 @@ class AssignmentController extends Controller
 
     
     return view('admin.assignments', ['assignments' => $posts]);
+}
+
+ public function updateStatus(Request $request, $id)
+{
+    $request->validate([
+        'status' => 'required|in:Pending,Ongoing,Complete',
+    ]);
+
+    $post = Post::findOrFail($id);
+    $post->status = $request->input('status');
+    $post->save();
+
+    Session::flash('success', 'Post status updated successfully.');
+    return Redirect::back();
 }
 
 }

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
 {
     Schema::table('posts', function (Blueprint $table) {
-        $table->enum('status', ['pending', 'ongoing', 'complete'])->default('pending');
+        $table->enum('status', ['Pending', 'Ongoing', 'Complete'])->default('Pending');
     });
 }
 
