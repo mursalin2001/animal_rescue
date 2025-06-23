@@ -1,11 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Virtual Assistant') }}
-        </h2>
-    </x-slot>
-
-   <div class="max-w-xl mx-auto mt-10 bg-white p-4 rounded shadow">
+    <div class="max-w-xl mx-auto mt-10 bg-white p-4 rounded shadow">
         <h2 class="text-2xl font-bold mb-4 text-center">🐾 Animal Rescue Chatbot</h2>
         <div id="chatbox" class="h-72 overflow-y-auto border p-3 bg-gray-100 mb-4 rounded"></div>
 
@@ -53,5 +47,4 @@
             });
         });
     </script>
-
 </x-app-layout>

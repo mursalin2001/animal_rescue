@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AssignmentController;
-
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,8 +32,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/feeds', "App\Http\Controllers\PostController@followers")->name('feeds');
     Route::resource('/manage/users', "App\Http\Controllers\UserController")->except(['create', 'show', 'store'])->names('users');
     Route::get('/{username}', "App\Http\Controllers\ProfileController@show")->name('profile');
-
-
+   
 
     Route::post('/volunteer', [App\Http\Controllers\InfoPageController::class, 'store'])->name('volunteer.store');
 
@@ -41,6 +40,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/pages/virtualAssistant', [App\Http\Controllers\InfoPageController::class, 'virtualAssistant'])->name('pages.virtualAssistant');
     Route::get('/pages/volunteer', [App\Http\Controllers\InfoPageController::class, 'volunteer'])->name('pages.volunteer');
     Route::get('/pages/careTips', [App\Http\Controllers\InfoPageController::class, 'careTips'])->name('pages.careTips');
+    Route::get('/pages/ongoing', [App\Http\Controllers\InfoPageController::class, 'ongoing'])->name('pages.ongoing');
+    Route::get('/pages/complete', [App\Http\Controllers\InfoPageController::class, 'complete'])->name('pages.complete');
+                                     
 
 
 

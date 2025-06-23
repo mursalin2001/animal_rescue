@@ -17,7 +17,7 @@
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('feeds') }}" :active="request()->routeIs('feeds')">
-                        {{ __('Rescue Feed') }}
+                        {{ __('Adoption') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
@@ -177,7 +177,7 @@
             </x-jet-responsive-nav-link>
 
             <x-jet-responsive-nav-link href="{{ route('feeds') }}" :active="request()->routeIs('feeds')">
-                {{ __('Rescue Feeds') }}
+                {{ __('Adoption') }}
             </x-jet-responsive-nav-link>
 
             <x-jet-responsive-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">

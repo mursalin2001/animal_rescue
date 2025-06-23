@@ -27,9 +27,12 @@ class PostController extends Controller
      * @return Application|Factory|View
      */
     public function followers(): Application|Factory|View
-    {
-        return view('post.followers');
-    }
+{
+    $posts = Post::all();
+    $posts = Post::with('postImages')->get();
+    return view('post.followers', compact('posts'));
+}
+
 
     /**
      * Show the form for creating a new resource.

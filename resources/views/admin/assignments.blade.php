@@ -11,10 +11,11 @@
         </div>
     @endif
 
-    @foreach ($assignments as $aa)
-        <div class="py-6">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+    
+           <div class="p-6 m-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                 @foreach ($assignments as $aa)
                     <div class="bg-white shadow rounded-lg p-4 border-l-4 border-green-500">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ $aa->animal_type }}</h3>
                         <span class="inline-block text-xs bg-yellow-200 text-yellow-800 px-2 py-1 rounded mb-2">
@@ -42,8 +43,11 @@
                             </form>
                         @endif
                     </div>
-                </div>
+                    @endforeach
             </div>
-        </div>
-    @endforeach
+            
+           </div>
+            
+   
+    
 </x-app-layout>
