@@ -25,10 +25,7 @@ The application is designed and tested to use conveniently without any issues. -
 - Built with Laravel 8
 - Jetstream (Livewire + blade stack)
 - Create posts
-- Like posts
-- Comment on posts
 - Delete posts
-- Delete Comments
 - On-time image uploads
 - Dynamic and Responsive Design
 - Compile and minify assets (200 kb resources)
@@ -95,8 +92,8 @@ php artisan serve
 
 You may use these credentials to log into your website. you can change these credentials shortly after logging in.
 
-**Email** : admin@gmail.com<br>
-**Password** : password
+<!-- **Email** : admin@gmail.com<br>
+**Password** : password -->
 
 
 ## Generating Dummy Data
@@ -121,10 +118,8 @@ php artisan clean:temp
 ```bash
 php artisan test
 ```
-## Credits
 
-- [@albinvar](https://github.com/albinvar)
 
 ## License
 
-[MIT](LICENSE) © Albin Varghese
+[MIT](LICENSE)
