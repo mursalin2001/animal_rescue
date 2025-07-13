@@ -16,10 +16,13 @@ class PostController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index(): View|Factory|Application
-    {
-        return view('post.manage');
-    }
+    public function index(Request $request): View|Factory|Application
+{
+    $status = $request->query('status');
+
+    return view('post.manage', compact('status'));
+}
+
 
     /**
      * Display a listing of the resource.

@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book Page Flip</title>
+  <title>🐍 সর্প পরিচিতি</title>
   <style>
     body {
       background: #eee;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 20px;
     }
 
     .book {
-      width: 300px;
-      height: 400px;
+      width: 320px;
+      height: 450px;
       position: relative;
       perspective: 2000px;
     }
@@ -27,13 +33,11 @@
       border: 1px solid #ccc;
       position: absolute;
       transform-origin: left;
-      transition: transform 1s;
+      transition: transform 0.8s ease;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .page .content {
       padding: 20px;
-      font-size: 24px;
+      box-sizing: border-box;
+      backface-visibility: hidden;
     }
 
     .page.flipped {
@@ -45,45 +49,81 @@
       z-index: 1;
     }
 
+    .controls {
+      margin-top: 20px;
+    }
+
     button {
-      position: absolute;
-      bottom: -50px;
-      left: 50%;
-      transform: translateX(-50%);
+      margin: 0 10px;
       padding: 10px 20px;
       font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="book">
-    <div class="page" id="page1">
-      <div class="content">Page 1</div>
-    </div>
-    <div class="page" id="page2">
-      <div class="content">Page 2</div>
-    </div>
-    <div class="page" id="page3">
-      <div class="content">Page 3</div>
-    </div>
-    <button onclick="nextPage()">Next</button>
+  <h1>🐍 সর্প পরিচিতি</h1>
+
+  <div class="book" id="book">
+    <!-- পেজগুলো এখানে যুক্ত হবে -->
   </div>
 
-  <!-- ✅ JS after DOM elements are loaded -->
+  <div class="controls">
+    <button onclick="prevPage()">⏪ পূর্ববর্তী</button>
+    <button onclick="nextPage()">পরবর্তী ⏩</button>
+  </div>
+
   <script>
     let currentPage = 0;
-    let pages;
+    let pages = [];
 
-    document.addEventListener("DOMContentLoaded", () => {
-      pages = document.querySelectorAll(".page");
-    });
+    function renderPage(snake) {
+      const page = document.createElement('div');
+      page.className = 'page';
+      page.innerHTML = `
+        <h3>${snake.id}. ${snake.name} (${snake.english_name})</h3>
+        <p><strong>বৈজ্ঞানিক নাম:</strong> ${snake.scientific_name}</p>
+        <p><strong>স্থানীয় নাম:</strong> ${snake.local_names?.length > 0 ? snake.local_names.join(", ") : "নেই"}</p>
+        <p><strong>বিষের ধরন:</strong> ${snake.venom_type}</p>
+        ${snake.region ? `<p><strong>অবস্থান:</strong> ${snake.region}</p>` : ''}
+        ${snake.symptoms ? `<p><strong>লক্ষণ:</strong> ${snake.symptoms}</p>` : ''}
+        <p><strong>চিকিৎসা:</strong> ${snake.treatment}</p>
+      `;
+      return page;
+    }
 
     function nextPage() {
-      if (currentPage < pages.length) {
-        pages[currentPage].classList.add("flipped");
+      if (currentPage < pages.length - 1) {
+        pages[currentPage].classList.add('flipped');
         currentPage++;
       }
     }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        pages[currentPage].classList.remove('flipped');
+      }
+    }
+
+    // পেজ লোড হলে fetch চালাও
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('snakes.json')
+        .then(res => res.json())
+        .then(snakes => {
+          const book = document.getElementById('book');
+          snakes.forEach(snake => {
+            const page = renderPage(snake);
+            book.appendChild(page);
+          });
+
+          pages = document.querySelectorAll('.page');
+        })
+        .catch(error => {
+          alert('❌ ডেটা লোড করা যায়নি!');
+          console.error('Error fetching JSON:', error);
+        });
+    });
   </script>
 </body>
 </html>

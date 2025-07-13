@@ -1,0 +1,219 @@
+[
+  
+    {
+        "id": 1,
+        "name": "হেলে",
+        "img":"images/snakes/hele.jpg",
+        "english_name": "Buff Striped keelback",
+        "scientific_name": "Amphiesma stolatum",
+        "local_names": ["দাগি ঢোঁড়া", "এনি", "জিংলাপোড়া", "নিলাম্বরী", "চিলু", "চ্যালো", "ভেংটু", "ঘেউটিয়া"],
+        "venom_type": "নির্বিষ",
+        "region": "বাংলাদেশের সব অঞ্চল",
+        "treatment": "হেলে শান্ত প্রকৃতির সাপ। এর বিষগ্রন্থি বা বিষদাঁত নেই। কামড়ের স্থানে সাবান পানি দিয়ে ধুয়ে নিলেই চিন্তামুক্ত থাকা যায়।"
+    },
+    {
+        "id": 2,
+        "name": "দাঁড়াশ সাপ",
+        "img":"images/snakes/darash.jpg",
+        "english_name": "Rat snake",
+        "scientific_name": "Ptyas mucosa",
+        "local_names": ["দাঁড়াশ", "দাড়াইল", "ঢ্যামনা", "দারাজ", "ডারাইস"],
+        "venom_type": "নির্বিষ",
+        "region": "সারা বাংলাদেশ",
+        "treatment": "নির্বিষ সাপ, কামড়ালে বিচলিত হবেন না। কামড়ের জায়গা সাবান পানি বা স্যানিটাইজার দিয়ে ধুয়ে নিন। প্রয়োজনে টিটেনাস নিন।"
+    },
+    {
+        "id": 3,
+        "name": "জলঢোড়া",
+        "english_name": "Checkered keelback",
+        "img":"images/snakes/joldora.jpeg",
+        "scientific_name": "Fowlea piscator / Xenochrophis piscator",
+        "local_names": ["জলঢোঁড়া", "ঢোঁড়া", "ধোরা", "ডোরা", "পাইন্যা সাপ"],
+        "venom_type": "নির্বিষ",
+        "region": "বাংলাদেশের সব অঞ্চল",
+        "treatment": "রাগী স্বভাবের হলেও নির্বিষ। কামড়ে ধরলে ছাড়তে চায় না, ইনফেকশনের আশঙ্কা থাকে, তাই সাবান ও টিটেনাস জরুরি।"
+    },
+    {
+        "id": 4,
+        "name": "চিত্রিত ঢোঁড়া",
+        "english_name": "Painted Keelback",
+        "img":"images/snakes/chitrito.jpg",
+        "scientific_name": "Xenochrophis cerasogaster",
+        "local_names": ["কালোপেট ঢোঁড়া", "কালো মেটে ঢোঁড়া", "কেরাবেরা", "দুইরগা হাপ", "কেওড়া মোরা", "রক্তবোড়া", "খড়িচোঁচ"],
+        "venom_type": "নির্বিষ",
+        "region": "বাংলাদেশসহ দক্ষিণ এশিয়া",
+        "treatment": "শান্ত স্বভাবের, কামড়ালে সাবান পানি দিয়ে ধুয়ে ফেললেই যথেষ্ট।"
+    },
+    {
+        "id": 5,
+        "name": "পাতি দুধরাজ",
+        "english_name": "Common Trinket snake",
+        "img":"images/snakes/patududhraj.jpeg",
+        "scientific_name": "Coelognathus helena",
+        "local_names": ["পঙ্ক্ষিরাজ", "দুধরাজ"],
+        "venom_type": "নির্বিষ",
+        "region": "বাংলাদেশের সব অঞ্চল, বিশেষ করে উত্তরাঞ্চল",
+        "treatment": "দাঁত আটকে গেলে চুল বা সুতার সাহায্যে টান দিতে হবে। সাবান ও অ্যান্টিসেপ্টিক ব্যবহার করে টিটেনাস নিতে হবে।"
+    },
+ {
+        "id": 6,
+        "name": "তামাটে মাথা দুধরাজ সাপ",
+        "img":"images/snakes/tamate.jpg",
+        "english_name": "Copper Headed Trinket Snake",
+        "scientific_name": "Coelognathus radiatus",
+        "local_names": ["তামাটে মাথা দুধরাজ সাপ", "পঙ্ক্ষিরাজ", "দুধরাজ", "তামাটে মাথা দাঁড়াশ", "গোয়াইল্লাবাহা", "ঘোরলাগ"],
+        "venom_type": "নির্বিষ",
+        "region": "বাংলাদেশের সব অঞ্চলে, দক্ষিণ পূর্বে বেশি",
+        "treatment": "সাধারণভাবে ক্ষতিকর নয়, কামড়ের পর সাবান বা অ্যান্টিসেপটিক দিয়ে পরিষ্কার করে টিটেনাস নিতে হয়"
+    },
+    {
+        "id": 7,
+        "name": "নোনা বোরা",
+        "img":"images/snakes/nonabora.jpg",
+        "english_name": "Dog-faced Water Snake",
+        "scientific_name": "Cerberus rynchops",
+        "local_names": ["কুকুরমুখো নোনা বোরা", "জলবোরা"],
+        "venom_type": "মৃদু বিষধর (নিউরোটক্সিন)",
+        "region": "সমুদ্র উপকূলীয় অঞ্চল, কাঁদাযুক্ত নদী ও বনাঞ্চল",
+        "treatment": "ক্ষতিকর নয়, সাবান পানি দিয়ে পরিষ্কার করে টিটেনাস নিন"
+    },
+    {
+        "id": 8,
+        "name": "লাউডগা",
+        "img":"images/snakes/laudoga.jpg",
+        "english_name": "Yellow Whip Snake",
+        "scientific_name": "Ahaetulla flavescens",
+        "local_names": ["লাউডগা", "সুতানালী", "জিংলাপোড়া", "বাঁশপাতালি", "উড়ুক্কু সাপ", "পঙখীরাজ সাপ"],
+        "venom_type": "মৃদু বিষধর (হিমোটক্সিন)",
+        "region": "সারাদেশেই কমবেশি",
+        "treatment": "র‍্যাশ বা ফোলা হতে পারে, অ্যান্টিসেপটিক দিয়ে পরিষ্কার করে চিকিৎসকের পরামর্শ নিতে হবে"
+    },
+    {
+        "id": 9,
+        "name": "কালনাগিনী",
+        "img":"images/snakes/kalnagin.jpg",
+        "english_name": "Ornate Flying Snake",
+        "scientific_name": "Chrysopelea ornata ornatissima",
+        "local_names": ["কালনাগিনী", "উড়ন্ত সাপ", "পঙখিরাজ", "উড়াল মহারাজ সাপ", "সুন্দরী সাপ"],
+        "venom_type": "মৃদু বিষধর (নিউরোটক্সিন)",
+        "region": "বাংলাদেশের পশ্চিমাঞ্চল, চট্টগ্রাম, সিলেট, সুন্দরবন",
+        "treatment": "সাধারণত ক্ষতিকর নয়, কামড়ের স্থানে অ্যান্টিসেপটিক ও চিকিৎসকের পরামর্শ নিন"
+    },
+    {
+        "id": 10,
+        "name": "রাজ গোখরা",
+        "img":"images/snakes/kingkobra.jpg",
+        "english_name": "King Cobra",
+        "scientific_name": "Ophiophagus hannah",
+        "local_names": ["রাজ গোখরা", "শংঙ্খচূড়"],
+        "venom_type": "Neurotoxin ও Cytotoxin",
+        "region": "সুন্দরবন, চট্টগ্রাম, পার্বত্য চট্টগ্রাম, সিলেট",
+        "treatment": "অত্যন্ত বিষধর, দ্রুত হাসপাতালে গিয়ে এন্টিভেনম নিতে হবে"
+    },
+    {
+        "id": 11,
+        "name": "খৈয়া গোখরা",
+        "img":"images/snakes/korish.jpg",
+        "english_name": "Spectacled cobra",
+        "scientific_name": "Naja naja",
+        "local_names": ["গোমা", "দুধিয়া গোমা", "দুধ গহমা", "আলদ", "খরিস গোখরা", "খৈয়া গোখরা", "জাত সাপ", "জাতি সাপ", "খৈয়া জাইত", "ঝৌড়া সাপ", "গুক্কু সাপ", "খয়া গুক্কু"],
+        "venom_type": "Synaptic Neurotoxin ও Cardiotoxin",
+        "symptoms": "বিষ স্নায়ুর সিনাপটিক ফাঁকগুলিতে কাজ করে ফলে পক্ষাঘাতগ্রস্ত হয় এবং শ্বাসকস্ট হয়।",
+        "treatment": "১৫ থেকে ১২০ বা ১৮০ মিনিটের মধ্যে উপসর্গ দেখা দেয়, তাই দ্রুত হাসপাতালে গিয়ে এন্টিভেনম নিতে হবে।"
+    },
+    {
+        "id": 12,
+        "name": "পদ্মগোখরা",
+        "img":"images/snakes/poddogokhra.jpg",
+        "english_name": "MONOCLED COBRA",
+        "scientific_name": "NAJA KAOUTHIA",
+        "local_names": ["কালগোহমা", "মাছুয়া আলদ", "কাল কেউটে", "ফানক", "কালফানস"],
+        "venom_type": "নিউরোটক্সিন",
+        "symptoms": "ঘুম ঘুম ভাব, চোখ বুজে আসা, ফুলে উঠা, বমি ভাব, জ্বর, অচেনা ভাব।",
+        "treatment": "৪ ঘন্টার মধ্যে এন্টিভেনম দিতে হবে, নাহলে মৃত্যুর সম্ভাবনা।"
+    },
+    {
+        "id": 13,
+        "name": "শঙ্খিনী",
+        "img":"images/snakes/sonkhini.jpeg",
+        "english_name": "Banded krait",
+        "scientific_name": "Bungarus fasciatus",
+        "local_names": ["পানিচিতি", "দুমুখো সাপ", "গালগোয়ালি সাপ", "সাপ খেকোসাপ"],
+        "venom_type": "নিউরোটক্সিন",
+        "treatment": "দ্রুত নিকটস্থ সদর হাসপাতাল বা মেডিক্যাল কলেজে নিয়ে যেতে হবে।"
+    },
+    {
+        "id": 14,
+        "name": "কালাচ",
+        "img":"images/snakes/kalach.jpg",
+        "english_name": "Common krait",
+        "scientific_name": "Bungarus caeruleus",
+        "local_names": ["কালাচ", "কেউটে", "কালাজ", "কালান্তর", "কালান্তরা", "কালচিতি", "ডোমনাচিতি", "শাহ কানন", "শিয়রচাঁদা", "নিয়রচাঁদা", "শাঁখাচিতি", "চামরকোষা", "ঘামচাটা"],
+        "venom_type": "নিউরোটক্সিন",
+        "treatment": "দ্রুত নিকটস্থ সদর হাসপাতাল বা মেডিক্যাল কলেজে নিয়ে যেতে হবে।"
+    },
+    {
+        "id": 15,
+        "img":"images/snakes/walls.jpg",
+        "name": "ওয়াল'স ক্রেইট",
+        "english_name": "Wall's krait",
+        "scientific_name": "Bungarus walli",
+        "local_names": ["ভিমরাজ", "কালো দাঁড়াশ", "বেছার", "মাছুয়া আলাদ", "গোরাস"],
+        "venom_type": "নিউরোটক্সিন",
+        "treatment": "দ্রুত নিকটস্থ সদর হাসপাতাল বা মেডিক্যাল কলেজে নিয়ে যেতে হবে।"
+    },
+      {
+        "id": 16,
+        "img":"images/snakes/choto_krisno.jpg",
+        "name": "ছোট কৃষ্ণকালাচ",
+        "english_name": "Lesser black krait",
+        "scientific_name": "Bungarus lividus",
+        "local_names": ["কৃষ্ণকালাচ", "কালকেউটে", "কালোদারাস", "বেছার সাপ"],
+        "venom_type": "নিউরোটক্সিন",
+        "treatment": "দ্রুত নিকটস্থ সদর হাসপাতাল অথবা সরকারি মেডিক্যাল কলেজে নিয়ে যেতে হবে।"
+      },
+      {
+        "id": 17,
+        "img":"images/snakes/greater_black_crait.jpeg",
+        "name": "বড় কালকেউটে",
+        "english_name": "Greater black krait",
+        "scientific_name": "Bungarus niger",
+        "local_names": ["কৃষ্ণকালাচ", "কালান্তর", "কালকেউটে"],
+        "venom_type": "নিউরোটক্সিন",
+        "treatment": "দ্রুত নিকটস্থ সদর হাসপাতাল অথবা সরকারি মেডিক্যাল কলেজে নিয়ে যেতে হবে।"
+      },
+      {
+        "id": 18,
+        "img":"images/snakes/russels.jpg",
+        "name": "চন্দ্রবোড়া",
+        "english_name": "Russell's viper",
+        "scientific_name": "Daboia russelii",
+        "local_names": [],
+        "venom_type": "হেমোটক্সিন",
+        "symptoms": "ব্যথা, ফোলা, রক্তপাত, কিডনি বিকল, ফোস্কা, রক্তচাপ কমে যাওয়া",
+        "treatment": "WBCT20 টেস্ট করে দ্রুত Anti Venom Serum (AVS) দিতে হবে এবং প্রয়োজনে ডায়ালাইসিস সুবিধাযুক্ত হাসপাতালে নিয়ে যেতে হবে।"
+      },
+      {
+        "id": 19,
+        "img":"images/snakes/komola.jpeg",
+        "name": "কমলাবতী",
+        "english_name": "Red coral kukri snake",
+        "scientific_name": "Oligodon kheriensis",
+        "local_names": [],
+        "venom_type": "নির্বিষ",
+        "treatment": "এন্টিসেপ্টিক ব্যবহার করতে হবে এবং টিটেনাস ইঞ্জেকশন নিতে হবে।"
+      },
+      {
+        "id": 20,
+        "img":"images/snakes/soru_probal.png",
+        "name": "সরু প্রবাল সাপ",
+        "english_name": "Slender Coral Snake",
+        "scientific_name": "Calliophis melanurus",
+        "local_names": [],
+        "venom_type": "নিউরোটক্সিন",
+        "symptoms": "টোসিস, ঘাড় বাঁকা, শ্বাসকষ্ট, চোখে অস্পষ্ট দেখা, পেশি অসাড়",
+        "treatment": "দ্রুত নিকটস্থ সদর হাসপাতাল অথবা সরকারি মেডিক্যাল কলেজে নিয়ে যেতে হবে।"
+      }
+
+  
+]

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🐍 সর্প পরিচিতি</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .book {
+      perspective: 2000px;
+      width:60%;
+      height: 75vh;
+    }
+
+    .page {
+      transform-origin: left;
+      backface-visibility: hidden;
+      transition: transform 1s ease;
+    }
+
+    .flipped {
+      transform: rotateY(-180deg);
+      z-index: 0 important;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex flex-col justify-center items-center overflow-hidden font-sans">
+
+  <h1 class="text-3xl font-bold mb-6 text-green-700">🐍 সর্প পরিচিতি</h1>
+
+  <div id="book" class="book ">
+    <img src="images/snakes/kalnagin.jpg" alt="">
+    <!-- পেইজগুলো এখানে যুক্ত হবে -->
+  </div>
+
+  <div class="controls mt-6">
+    <button onclick="prevPage()" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 mx-2 rounded">
+      ⏪ পূর্ববর্তী
+    </button>
+    <button onclick="nextPage()" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 mx-2 rounded">
+      পরবর্তী ⏩
+    </button>
+  </div>
+
+  <script>
+    let currentPage = 0;
+    let pages = [];
+
+    function renderPage(snake, index, total) {
+      const page = document.createElement('div');
+      page.className = 'page absolute top-0 left-0 w-full h-full bg-white border border-gray-300 shadow-lg p-4 overflow-y-auto rounded-md';
+      page.style.zIndex = total - index;
+
+      page.innerHTML = `
+        <h3 class="text-xl font-bold mb-2">${snake.id}. ${snake.name} (${snake.english_name})</h3>
+        <p class="mb-1"><strong>🧪 বৈজ্ঞানিক নাম:</strong> ${snake.scientific_name}</p>
+        <p class="mb-1"><strong>🧪 Image:</strong>  <img src="${snake.img}" alt=""> </p>
+        <p class="mb-1"><strong>🏷️ স্থানীয় নাম:</strong> ${snake.local_names?.length > 0 ? snake.local_names.join(", ") : "নেই"}</p>
+        <p class="mb-1"><strong>☠️ বিষের ধরন:</strong> ${snake.venom_type}</p>
+        ${snake.region ? `<p class="mb-1"><strong>📍 অবস্থান:</strong> ${snake.region}</p>` : ''}
+        ${snake.symptoms ? `<p class="mb-1"><strong>⚠️ লক্ষণ:</strong> ${snake.symptoms}</p>` : ''}
+        <p class="mt-2"><strong>💊 চিকিৎসা:</strong> ${snake.treatment}</p>
+      `;
+      return page;
+    }
+
+    function nextPage() {
+      if (currentPage < pages.length) {
+        pages[currentPage].classList.add('flipped');
+        currentPage++;
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        pages[currentPage].classList.remove('flipped');
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('snakes.json')
+        .then(res => res.json())
+        .then(snakes => {
+          const book = document.getElementById('book');
+          snakes.forEach((snake, i) => {
+            const page = renderPage(snake, i, snakes.length);
+            book.appendChild(page);
+          });
+          pages = document.querySelectorAll('.page');
+        })
+        .catch(error => {
+          alert('❌ ডেটা লোড করা যায়নি!');
+          console.error('Error fetching JSON:', error);
+        });
+    });
+  </script>
+</body>
+</html>

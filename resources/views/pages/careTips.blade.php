@@ -71,7 +71,5 @@
     @endforeach
 
     <!-- Footer Note -->
-    <div class="text-center text-sm italic text-gray-600 mt-10 mb-5">
-        Curated by Decimals to Infinity — Empowering Animal Rescuers, 2025
-    </div>
+   
 </x-app-layout>

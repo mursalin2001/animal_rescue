@@ -25,7 +25,7 @@ Route::get('/favicon.ico', function () {
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/home', function () {
-        return view('home');
+        return view('home',['status']);
     })->name('home');
 
     Route::resource('/posts', "App\Http\Controllers\PostController")->names('posts');

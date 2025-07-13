@@ -11,7 +11,8 @@
 	
 </style>
 
-    <livewire:posts.view :type="'me'" />
+    <livewire:posts.view :type="'me'" :status="request()->query('status')" />
+
     
 </div>
             
