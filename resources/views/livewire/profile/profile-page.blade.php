@@ -13,7 +13,7 @@
       </div>
 
       <div class="relative shadow mx-auto h-24 w-24 -my-12 border-white rounded-full overflow-hidden border-4">
-        <img class="object-cover w-full h-full" src="{{ $user->profile_photo_url }}">
+        <img class="object-cover w-full h-full" src="{{ asset('storage/' .Auth::user()->profile_photo_path) }}">
       </div>
 
       <div class="mt-16">
