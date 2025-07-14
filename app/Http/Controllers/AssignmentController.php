@@ -37,4 +37,17 @@ class AssignmentController extends Controller
     return Redirect::back();
 }
 
+public function updateAdoption(Request $request, $id)
+{
+    $request->validate([
+        'adoption' => 'required|in:Fit,Not Fit',
+    ]);
+
+    $post = Post::findOrFail($id);
+    $post->adoption = $request->input('adoption');
+    $post->save();
+
+    Session::flash('success', 'Post adoption status updated successfully.');
+    return Redirect::back();
+}
 }

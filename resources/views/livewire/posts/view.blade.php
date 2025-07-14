@@ -21,10 +21,12 @@
   <span class="block sm:inline text-center">{{ session()->get('error') }}</span>
 </div>
 @endif
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 	@forelse($posts as $post)
 
-      @include('elements.post')
 
+      @include('elements.post')
     @empty
         <div class="flex flex-col mx-2 my-12 md:mx-32 lg:my-28 lg:mx-60">
             <div class="bg-white shadow-md rounded-3xl p-4">
@@ -45,6 +47,7 @@
             </div>
         </div>
         @endforelse
+</div>
 
         <div class="py-4 mb-2">
 	        {{ $posts->links() }}

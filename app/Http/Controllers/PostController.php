@@ -18,9 +18,9 @@ class PostController extends Controller
      */
     public function index(Request $request): View|Factory|Application
 {
-    $status = $request->query('status');
+        $posts = Post::where('status', 'Ongoing')->get();
 
-    return view('post.manage', compact('status'));
+    return view('post.manage', compact('posts'));
 }
 
 
@@ -31,8 +31,7 @@ class PostController extends Controller
      */
     public function followers(): Application|Factory|View
 {
-    $posts = Post::all();
-    $posts = Post::with('postImages')->get();
+    $posts = Post::with('postImages')->where('adoption', 'Fit')->get();
     return view('post.followers', compact('posts'));
 }
 

@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
 
     Route::post('/posts/{id}/update-status', [AssignmentController::class, 'updateStatus'])->name('posts.updateStatus');
+    Route::put('/posts/{id}/adoption', [AssignmentController::class, 'updateAdoption'])->name('update.adoption');
 
 
 
