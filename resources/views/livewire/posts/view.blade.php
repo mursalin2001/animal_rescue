@@ -49,8 +49,8 @@ $my_ongoing = $posts->where('status', 'Ongoing')->count();
        class="px-4 py-2 rounded {{ $currentStatus === 'Ongoing' ? 'bg-blue-400 text-white' : 'bg-blue-200' }}">
         Ongoing({{  $isHome? $ongoing : $my_ongoing}})
     </a>
-    <a href="{{ $currentUrl . '?status=Completed' }}"
-       class="px-4 py-2 rounded {{ $currentStatus === 'Completed' ? 'bg-green-400 text-white' : 'bg-green-200' }}">
+    <a href="{{ $currentUrl . '?status=Complete' }}"
+       class="px-4 py-2 rounded {{ $currentStatus === 'Complete' ? 'bg-green-400 text-white' : 'bg-green-200' }}">
         Completed({{ $isHome? $completed : $my_complete}})
     </a>
 </div>
