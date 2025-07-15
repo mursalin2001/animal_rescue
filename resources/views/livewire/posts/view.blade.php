@@ -22,6 +22,28 @@
 </div>
 @endif
 
+
+@php
+    $currentUrl = url()->current();
+    $currentStatus = request('status');
+@endphp
+
+<div class="flex justify-center gap-4 my-6">
+    <a href="{{ $currentUrl . '?status=Pending' }}"
+       class="px-4 py-2 rounded {{ $currentStatus === 'Pending' ? 'bg-yellow-400 text-white' : 'bg-yellow-200' }}">
+        Pending
+    </a>
+    <a href="{{ $currentUrl . '?status=Ongoing' }}"
+       class="px-4 py-2 rounded {{ $currentStatus === 'Ongoing' ? 'bg-blue-400 text-white' : 'bg-blue-200' }}">
+        Ongoing
+    </a>
+    <a href="{{ $currentUrl . '?status=Completed' }}"
+       class="px-4 py-2 rounded {{ $currentStatus === 'Completed' ? 'bg-green-400 text-white' : 'bg-green-200' }}">
+        Completed
+    </a>
+</div>
+
+
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 	@forelse($posts as $post)
 

@@ -17,30 +17,26 @@ class View extends Component
     use WithPagination;
 
     public $comments = [];
-
     public $comment;
-
     public $type;
-
     public $queryType;
-
+    public $status;
     public $postId;
-
     public $deletePostId;
-
     public $isOpenCommentModal = false;
-
     public $isOpenDeletePostModal = false;
 
-    public function mount($type = null)
+    protected $queryString = ['status'];
+
+    public function mount($type = null, $status = null)
     {
         $this->queryType = $type;
+        $this->status = $status;
     }
 
     public function render()
     {
         $posts = $this->setQuery();
-
         return view('livewire.posts.view', ['posts' => $posts]);
     }
 
@@ -50,11 +46,10 @@ class View extends Component
             ->where('post_id', $post->id);
 
         if (! $like->count()) {
-            $new = Like::create([
+            Like::create([
                 'post_id' => $post->id,
                 'user_id' => Auth::id(),
             ]);
-
             return true;
         }
         $like->delete();
@@ -64,8 +59,8 @@ class View extends Component
     {
         $post = Post::with(['comments.user' => function ($query) {
             $query->select('id', 'name');
-        },
-        ])->find($post);
+        }])->find($post);
+
         $this->postId = $post->id;
         $this->resetValidation('comment');
         $this->isOpenCommentModal = true;
@@ -73,11 +68,6 @@ class View extends Component
         return true;
     }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     public function createComment(Post $post)
     {
         $validatedData = Validator::make(
@@ -92,11 +82,8 @@ class View extends Component
         ]);
 
         session()->flash('comment.success', 'Comment created successfully');
-
         $this->setComments($post);
         $this->comment = '';
-
-        //$this->isOpenCommentModal = false;
         return redirect()->back();
     }
 
@@ -147,25 +134,23 @@ class View extends Component
 
     private function setQuery()
     {
-        if (! empty($this->queryType) && $this->queryType === 'me') {
-            $posts = Post::withCount(['likes', 'comments'])->where('user_id', Auth::id())->with(['userLikes', 'postImages', 'user' => function ($query) {
-                $query->select(['id', 'name', 'username', 'profile_photo_path']);
-            },
-            ])->latest()->paginate(10);
-        } elseif (! empty($this->queryType) && $this->queryType === 'followers') {
-            $userIds = Auth::user()->followings()->pluck('follower_id');
+        $query = Post::withCount(['likes', 'comments'])
+            ->with(['userLikes', 'postImages', 'user' => function ($q) {
+                $q->select(['id', 'name', 'username', 'profile_photo_path']);
+            }]);
+
+        if ($this->queryType === 'me') {
+            $query->where('user_id', Auth::id());
+        } elseif ($this->queryType === 'followers') {
+            $userIds = Auth::user()->followings()->pluck('follower_id')->toArray();
             $userIds[] = Auth::id();
-            $posts = Post::withCount(['likes', 'comments'])->whereIn('user_id', $userIds)->with(['userLikes', 'postImages', 'user' => function ($query) {
-                $query->select(['id', 'name', 'username', 'profile_photo_path']);
-            },
-            ])->latest()->paginate(10);
-        } else {
-            $posts = Post::withCount(['likes', 'comments'])->with(['userLikes', 'postImages', 'user' => function ($query) {
-                $query->select(['id', 'name', 'username', 'profile_photo_path']);
-            },
-            ])->latest()->paginate(10);
+            $query->whereIn('user_id', $userIds);
         }
 
-        return $posts;
+        if (!empty($this->status)) {
+            $query->where('status', $this->status);
+        }
+
+        return $query->latest()->paginate(10);
     }
 }

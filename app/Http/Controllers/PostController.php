@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index(Request $request): View|Factory|Application
 {
-        $posts = Post::where('status', 'Ongoing')->get();
+      $posts = Post::where('status', 'Complete')->orderBy('created_at', 'desc')->get();
 
     return view('post.manage', compact('posts'));
 }
