@@ -1,5 +1,16 @@
-<div>
 
+<div>
+<?php 
+use App\Models\Post;
+$pending = Post::where('status', 'Pending')->count();
+$ongoing = Post::where('status', 'Ongoing')->count();
+$completed = Post::where('status', 'Complete')->count();
+
+$my_pending = $posts->where('status', 'Pending')->count();
+$my_complete = $posts->where('status', 'Complete')->count();
+$my_ongoing = $posts->where('status', 'Ongoing')->count();
+
+?>
 @section('styles')
 <link rel='stylesheet' href='https://cdn.plyr.io/3.4.6/plyr.css'>
 
@@ -26,20 +37,21 @@
 @php
     $currentUrl = url()->current();
     $currentStatus = request('status');
+    $isHome = request()->is('home');
 @endphp
 
 <div class="flex justify-center gap-4 my-6">
     <a href="{{ $currentUrl . '?status=Pending' }}"
        class="px-4 py-2 rounded {{ $currentStatus === 'Pending' ? 'bg-yellow-400 text-white' : 'bg-yellow-200' }}">
-        Pending
+        Pending({{$isHome? $pending : $my_pending}})
     </a>
     <a href="{{ $currentUrl . '?status=Ongoing' }}"
        class="px-4 py-2 rounded {{ $currentStatus === 'Ongoing' ? 'bg-blue-400 text-white' : 'bg-blue-200' }}">
-        Ongoing
+        Ongoing({{  $isHome? $ongoing : $my_ongoing}})
     </a>
     <a href="{{ $currentUrl . '?status=Completed' }}"
        class="px-4 py-2 rounded {{ $currentStatus === 'Completed' ? 'bg-green-400 text-white' : 'bg-green-200' }}">
-        Completed
+        Completed({{ $isHome? $completed : $my_complete}})
     </a>
 </div>
 
