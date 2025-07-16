@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 use App\Models\Post;
-use App\Models\users;
+use App\Models\volunteer;
 use Illuminate\Http\Request;
 
 class AssignmentController extends Controller
@@ -18,9 +18,10 @@ class AssignmentController extends Controller
     $upazilas = [Auth::user()->address];
 
     $posts = Post::whereIn('upazila', $upazilas)->with('user')->get();
-
     
-    return view('admin.assignments', ['assignments' => $posts]);
+    $volunteer_upazila = Volunteer::all();
+
+    return view('admin.assignments', ['assignments' => $posts, 'volunteers' => $volunteer_upazila]);
 }
 
  public function updateStatus(Request $request, $id)

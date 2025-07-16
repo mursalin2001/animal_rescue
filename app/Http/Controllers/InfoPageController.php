@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\volunteer;
 use App\Models\Post;
+use App\Models\Media;
 use Exception;
 
 class InfoPageController extends Controller
@@ -82,6 +83,7 @@ class InfoPageController extends Controller
     public function show($id)
     {
         $animal = Post::findOrFail($id);
-        return view('pages.animal_profile', compact('animal'));
+        $animal_media = Media::findOrFail($id);
+        return view('pages.animal_profile', compact('animal','animal_media'));
     }
 }

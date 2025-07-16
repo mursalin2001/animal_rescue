@@ -5,8 +5,25 @@
         </h2>
     </x-slot>
 
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+    <div class="bg-white h-48 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+        <p class="text-gray-700 font-semibold">মৃদু বিষধর, বিষধর ও নির্বিষ সাপের প্রজাতি</p>
+    </div>
+    <div class="bg-white h-48 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+        <p class="text-gray-700 font-semibold">সর্পদংশনের লক্ষন, উপসর্গ ও করনীয়</p>
+    </div>
+    <div class="bg-white h-48 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+        <p class="text-gray-700 font-semibold">সর্পদংশনের প্রাথমিক চিকিৎসা </p>
+    </div>
+    <div class="bg-white h-48 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+        <p class="text-gray-700 font-semibold">সাপ সংক্রান্ত কুসংস্কার ও সাপের গুরুত্ব</p>
+    </div>
+    
+</div>
+
+
     <!-- Header -->
-    <div class="bg-black text-white py-6 text-center">
+    <div class=" text-black py-6 text-center">
         <h1 class="text-4xl font-bold tracking-wide">🐍 সর্প পরিচিতি</h1>
     </div>
 
