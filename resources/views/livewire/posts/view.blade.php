@@ -6,9 +6,10 @@ $pending = Post::where('status', 'Pending')->count();
 $ongoing = Post::where('status', 'Ongoing')->count();
 $completed = Post::where('status', 'Complete')->count();
 
-$my_pending = $posts->where('status', 'Pending')->count();
-$my_complete = $posts->where('status', 'Complete')->count();
-$my_ongoing = $posts->where('status', 'Ongoing')->count();
+$my_pending = Post::where('user_id', Auth::id())->where('status', 'Pending')->count();
+$my_ongoing = Post::where('user_id', Auth::id())->where('status', 'Ongoing')->count();
+$my_complete = Post::where('user_id', Auth::id())->where('status', 'Complete')->count();
+
 
 ?>
 @section('styles')
@@ -41,19 +42,35 @@ $my_ongoing = $posts->where('status', 'Ongoing')->count();
 @endphp
 
 <div class="flex justify-center gap-4 my-6">
+  @if($isHome)
     <a href="{{ $currentUrl . '?status=Pending' }}"
        class="px-4 py-2 rounded {{ $currentStatus === 'Pending' ? 'bg-yellow-400 text-white' : 'bg-yellow-200' }}">
-        Pending({{$isHome? $pending : $my_pending}})
+        Pending ({{ $pending }})
     </a>
     <a href="{{ $currentUrl . '?status=Ongoing' }}"
        class="px-4 py-2 rounded {{ $currentStatus === 'Ongoing' ? 'bg-blue-400 text-white' : 'bg-blue-200' }}">
-        Ongoing({{  $isHome? $ongoing : $my_ongoing}})
+        Ongoing ({{ $ongoing }})
     </a>
     <a href="{{ $currentUrl . '?status=Complete' }}"
        class="px-4 py-2 rounded {{ $currentStatus === 'Complete' ? 'bg-green-400 text-white' : 'bg-green-200' }}">
-        Completed({{ $isHome? $completed : $my_complete}})
+        Completed ({{ $completed }})
     </a>
+  @else
+    <a href="{{ $currentUrl . '?status=Pending' }}"
+       class="px-4 py-2 rounded {{ $currentStatus === 'Pending' ? 'bg-yellow-400 text-white' : 'bg-yellow-200' }}">
+        Pending ({{ $my_pending }})
+    </a>
+    <a href="{{ $currentUrl . '?status=Ongoing' }}"
+       class="px-4 py-2 rounded {{ $currentStatus === 'Ongoing' ? 'bg-blue-400 text-white' : 'bg-blue-200' }}">
+        Ongoing ({{ $my_ongoing }})
+    </a>
+    <a href="{{ $currentUrl . '?status=Complete' }}"
+       class="px-4 py-2 rounded {{ $currentStatus === 'Complete' ? 'bg-green-400 text-white' : 'bg-green-200' }}">
+        Completed ({{ $my_complete }})
+    </a>
+  @endif
 </div>
+
 
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\volunteer;
+use App\Models\Post;
 use Exception;
 
 class InfoPageController extends Controller
@@ -76,5 +77,11 @@ class InfoPageController extends Controller
     public function complete()
     {
         return view('pages.complete');
+    }
+
+    public function show($id)
+    {
+        $animal = Post::findOrFail($id);
+        return view('pages.animal_profile', compact('animal'));
     }
 }

@@ -78,6 +78,12 @@
                     </div>
                 </div>
 
+                <a href="{{ route('pages.animal_profile', $post->id) }}" class="text-green-600 text-sm hover:underline">
+                    View Details
+                </a>
+
+
+
                 <div class="flex mt-6 mb-4 p-4 pb-2 border-t border-gray-200 "></div>
                 <div class="flex space-x-3 text-sm font-medium">
                     <a href="https://www.google.com/maps/search/?api=1&query={{ $post->latitude }},{{ $post->longitude }}"

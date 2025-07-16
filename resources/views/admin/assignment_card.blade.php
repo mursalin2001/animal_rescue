@@ -5,12 +5,15 @@
     </span>
     <p class="text-sm text-gray-600 mb-3">{{ $aa->description }}</p>
     <p class="text-sm text-gray-600 mb-3">{{ $aa->upazila }}</p>
-    <a href="#" class="text-green-600 text-sm hover:underline">View Details</a>
+    <a href="{{ route('pages.animal_profile', $aa->id) }}" class="text-green-600 text-sm hover:underline">
+        View Details
+    </a>
 
     @if (auth()->user() && auth()->user()->role_id == 2)
         <form action="{{ route('posts.updateStatus', $aa->id) }}" method="POST" class="mt-4">
             @csrf
-            <label for="status_{{ $aa->id }}" class="block mb-1 text-sm font-semibold text-gray-700">Change Status</label>
+            <label for="status_{{ $aa->id }}" class="block mb-1 text-sm font-semibold text-gray-700">Change
+                Status</label>
             <select name="status" id="status_{{ $aa->id }}"
                 class="w-full px-4 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 onchange="this.form.submit()">
