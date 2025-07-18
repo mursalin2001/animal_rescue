@@ -52,22 +52,41 @@
         </div>
 
 
-        @if (Auth::user()->role_id == 3)
-                <div class="w-1/5 bg-green-100 p-6 m-3">
-            <p class="text-xl font-bold text-red-600 mb-4">
-                Volunteer request
-            </p>
+       @if (Auth::user()->role_id == 3)
+    <div class="w-full md:w-1/5 bg-white shadow rounded-xl m-3 p-4 border border-gray-200">
+        <h3 class="text-lg font-semibold text-gray-800 border-b pb-2 mb-4 flex items-center justify-between">
+            <span class="text-red-600">🧑‍🤝‍🧑 Volunteer Requests</span>
+        </h3>
 
-            
+        <div class="space-y-3 max-h-[600px] overflow-y-auto">
+            @php $has_volunteers = false; @endphp
+
             @foreach ($user_data as $user)
-                            <a href="{{ route('users.edit', ['user' => $user->id ]) }}" class="text-indigo-600 hover:text-indigo-900">
-                <p>{{ $user->username }}</p>
-
-                            </a>
-
+                @if ($user->role_id == 1)
+                    @php $has_volunteers = true; @endphp
+                    <a href="{{ route('users.edit', ['user' => $user->id]) }}"
+                        class="flex items-center justify-between bg-green-50 hover:bg-green-100 border border-green-200 p-3 rounded-lg transition duration-200 shadow-sm">
+                        <div>
+                            <p class="text-sm font-medium text-gray-800">{{ $user->name }}</p>
+                            <p class="text-xs text-gray-500">View Profile</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                @endif
             @endforeach
-        </div>
+
+            @if (!$has_volunteers)
+                <p class="text-sm text-gray-500">No volunteer requests at the moment.</p>
             @endif
-        
+        </div>
+    </div>
+@endif
+
+
+
 
 </x-app-layout>

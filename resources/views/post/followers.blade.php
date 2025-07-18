@@ -18,13 +18,11 @@
                         @forelse ($post->postImages as $media)
                             @if ($media->is_image && preg_match('/\.(png|jpg|jpeg|gif)$/i', $media->path))
                                 <img src="{{ url('/storage/' . $media->path) }}"
-                                     alt="{{ $post->description ?? 'Post Image' }}"
-                                     class="w-full h-80 object-cover rounded-t-xl"
-                                     oncontextmenu="return false;">
+                                    alt="{{ $post->description ?? 'Post Image' }}"
+                                    class="w-full h-80 object-cover rounded-t-xl" oncontextmenu="return false;">
                             @elseif (!$media->is_image && preg_match('/\.(mp4|3gp)$/i', $media->path))
-                                <video controls playsinline oncontextmenu="return false;"
-                                       controlsList="nodownload"
-                                       class="w-full h-80 object-cover rounded-t-xl">
+                                <video controls playsinline oncontextmenu="return false;" controlsList="nodownload"
+                                    class="w-full h-80 object-cover rounded-t-xl">
                                     <source src="{{ url('/storage/' . $media->path) }}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -35,14 +33,22 @@
                             </div>
                         @endforelse
 
-                        <button class="absolute top-2 right-2 bg-white rounded-full p-2 shadow hover:scale-105 transition">
+                        <button
+                            class="absolute top-2 right-2 bg-white rounded-full p-2 shadow hover:scale-105 transition">
                             ❤️
                         </button>
                     </div>
 
                     <div class="p-4 text-center font-medium text-purple-700">
-                        {{ $post->description }}
+                        {{ $post->animal_type }}
                     </div>
+                    <div class="p-4 text-center font-medium text-purple-700">
+                        <a href="{{ route('pages.animal_profile', $post->id) }}"
+                            class="text-green-600 text-sm hover:underline">
+                            See details
+                        </a>
+                    </div>
+
                 </div>
             @endforeach
         </div>

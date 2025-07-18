@@ -73,32 +73,22 @@ $my_complete = Post::where('user_id', Auth::id())->where('status', 'Complete')->
 
 
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-	@forelse($posts as $post)
-
-
-      @include('elements.post')
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    @forelse($posts as $post)
+        @include('elements.post')
     @empty
-        <div class="flex flex-col mx-2 my-12 md:mx-32 lg:my-28 lg:mx-60">
-            <div class="bg-white shadow-md rounded-3xl p-4">
-                <div class="flex-none">
-                    <div class=" h-full w-full mb-3">
-                        <img src="{{ asset('images/no-posts.png') }}"
-                            alt="Just a flower" class="w-full object-scale-down md:object-cover lg:object-cover  rounded-2xl">
-                    </div>
-                    <div class="flex-auto ml-3 justify-evenly py-2">
-                        <div class="flex flex-wrap ">
-
-                            <h2 class="flex-auto text-lg text-center font-medium">{{ __('No Posts found..!!!') }}</h2>
-                        </div>
-                        <p class="mt-3"></p>
-
-                    </div>
-                </div>
+        <div class="col-span-full flex justify-center">
+            <div class="bg-white shadow-md rounded-3xl p-6 max-w-xl w-full text-center">
+                <img src="{{ asset('images/no-posts.png') }}" 
+                     alt="No Posts" 
+                     class="w-full h-64 object-contain rounded-xl mb-4">
+                <h2 class="text-xl font-semibold text-gray-700">{{ __('No Posts found..!!!') }}</h2>
+                <p class="text-sm text-gray-500 mt-2">Try adjusting your filters or check back later.</p>
             </div>
         </div>
-        @endforelse
+    @endforelse
 </div>
+
 
         <div class="py-4 mb-2">
 	        {{ $posts->links() }}
