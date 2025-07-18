@@ -20,6 +20,20 @@
                 </div>
             @endif
 
+            @if ($errors->has('duplicate'))
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">
+                    {{ $errors->first('duplicate') }}
+                </div>
+            @endif
+
+            @if ($errors->has('auth'))
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">
+                    {{ $errors->first('auth') }}
+                </div>
+            @endif
+
+
+            {{-- {{dd(Auth::user()->id)}}; --}}
             <form method="POST" action="{{ route('volunteer.store') }}" class="space-y-6">
                 @csrf
 
@@ -99,7 +113,7 @@
                     </button>
                 </div>
             </form>
-        <script src="{{ asset('scripts.js') }}"></script>
+            <script src="{{ asset('scripts.js') }}"></script>
 
         </div>
     </div>

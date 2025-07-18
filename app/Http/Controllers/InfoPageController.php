@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\volunteer;
@@ -8,8 +9,10 @@ use App\Models\Post;
 use App\Models\Media;
 use Exception;
 
+
 class InfoPageController extends Controller
 {
+
     public function virtualAssistant()
     {
         return view('pages.virtualAssistant');
@@ -40,30 +43,47 @@ class InfoPageController extends Controller
         return view('pages.volunteer');
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'phone' => ['required', 'regex:/^(01)[0-9]{9}$/'],
-            'address' => 'required|string|max:255',
+   public function store(Request $request)
+{
+    if (!Auth::check()) {
+        return redirect()->back()->withErrors(['auth' => 'You must be logged in to submit the form.']);
+    }
+
+    $user_id = Auth::user()->id;
+
+    // ✅ Check if the user already submitted
+    $existingApplication = Volunteer::where('user_id', $user_id)->first();
+    if ($existingApplication) {
+        return redirect()->back()->withErrors(['duplicate' => 'You have already submitted the form, please wait for our response.']);
+    }
+
+    // ✅ Validation
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email',
+        'phone' => ['required', 'regex:/^(01)[0-9]{9}$/'],
+        'address' => 'required|string|max:255',
+    ]);
+
+    try {
+        Volunteer::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'availability' => $request->availability,
+            'skills' => $request->skills,
+            'user_id' => $user_id, // Store user_id
         ]);
 
-        try {
-            volunteer::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'address' => $request->address,
-                'availability' => $request->availability,
-                'skills' => $request->skills,
-            ]);
+        return redirect()->back()->with('success', 'Application submitted successfully!');
+    } catch (Exception $e) {
+        return redirect()->back()->with('submission', 'Something went wrong...');
 
-            return redirect()->back()->with('success', 'Application submitted successfully!');
-        } catch (Exception $e) {
-            return redirect()->back()->withErrors(['submission' => 'Something went wrong. Please try again later.']);
-        }
     }
+}
+
+
 
     public function careTips()
     {

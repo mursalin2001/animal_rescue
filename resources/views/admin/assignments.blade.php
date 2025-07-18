@@ -18,9 +18,9 @@
             <div>
                 <p class="text-xl font-bold text-yellow-600 mb-4">⏳ Pending Assignments</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    @foreach ($assignments as $aa)
-                        @if ($aa->status == 'Pending')
-                            @include('admin.assignment_card', ['aa' => $aa])
+                    @foreach ($assignments as $post)
+                        @if ($post->status == 'Pending')
+                            @include('admin.assignment_card', ['post' => $post])
                         @endif
                     @endforeach
                 </div>
@@ -30,9 +30,9 @@
             <div>
                 <p class="text-xl font-bold text-blue-600 mb-4">🚑 Ongoing Assignments</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    @foreach ($assignments as $aa)
-                        @if ($aa->status == 'Ongoing')
-                            @include('admin.assignment_card', ['aa' => $aa])
+                    @foreach ($assignments as $post)
+                        @if ($post->status == 'Ongoing')
+                            @include('admin.assignment_card', ['post' => $post])
                         @endif
                     @endforeach
                 </div>
@@ -42,25 +42,32 @@
             <div>
                 <p class="text-xl font-bold text-green-600 mb-4">✅ Completed Assignments</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    @foreach ($assignments as $aa)
-                        @if ($aa->status == 'Complete')
-                            @include('admin.assignment_card', ['aa' => $aa])
+                    @foreach ($assignments as $post)
+                        @if ($post->status == 'Complete')
+                            @include('admin.assignment_card', ['post' => $post])
                         @endif
                     @endforeach
                 </div>
             </div>
         </div>
 
-        <div class="w-1/5 bg-green-100 p-6 m-3">
+
+        @if (Auth::user()->role_id == 3)
+                <div class="w-1/5 bg-green-100 p-6 m-3">
             <p class="text-xl font-bold text-red-600 mb-4">
                 Volunteer request
             </p>
-             @foreach ($volunteers as $aaa)
-                        @if ($aaa->address === Auth::user()->address)
-                        <p>{{$aaa->name}}</p>
-                        @endif
+
+            
+            @foreach ($user_data as $user)
+                            <a href="{{ route('users.edit', ['user' => $user->id ]) }}" class="text-indigo-600 hover:text-indigo-900">
+                <p>{{ $user->username }}</p>
+
+                            </a>
+
             @endforeach
         </div>
-    </div>
+            @endif
+        
 
 </x-app-layout>

@@ -9,6 +9,5 @@ class volunteer extends Model
 {
     use HasFactory;
     // app/Models/volunteer.php
-    protected $fillable = ['name', 'email', 'phone', 'address', 'availability', 'skills'];
+    protected $fillable = ['name', 'email', 'phone', 'address', 'availability', 'skills','user_id'];
 }
-

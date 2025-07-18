@@ -11,86 +11,69 @@ class UserPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view any models.
+     * Check if the user is admin or super admin.
      *
      * @param User $user
-     *
-     * @return Response|bool
+     * @return bool
      */
-    public function viewAny(User $user)
+    protected function isAdminOrSuperAdmin(User $user): bool
     {
-        return $user->isAdmin();
+        return $user->isAdmin() || $user->isSuperAdmin();
+    }
+
+    /**
+     * Determine whether the user can view any models.
+     */
+    public function viewAny(User $user): bool|Response
+    {
+        return $this->isAdminOrSuperAdmin($user);
     }
 
     /**
      * Determine whether the user can view the model.
-     *
-     * @param User $user
-     * @param User $model
-     *
-     * @return Response|bool
      */
-    public function view(User $user, User $model)
+    public function view(User $user, User $model): bool|Response
     {
-        return $user->isAdmin();
+        return $this->isAdminOrSuperAdmin($user);
     }
 
     /**
      * Determine whether the user can create models.
-     *
-     * @param User $user
-     *
-     * @return Response|bool
      */
-    public function create(User $user)
+    public function create(User $user): bool|Response
     {
+        return $this->isAdminOrSuperAdmin($user);
     }
 
     /**
      * Determine whether the user can update the model.
-     *
-     * @param User $user
-     * @param User $model
-     *
-     * @return Response|bool
      */
-    public function update(User $user, User $model)
+    public function update(User $user, User $model): bool|Response
     {
+        return $this->isAdminOrSuperAdmin($user);
     }
 
     /**
      * Determine whether the user can delete the model.
-     *
-     * @param User $user
-     * @param User $model
-     *
-     * @return Response|bool
      */
-    public function delete(User $user, User $model)
+    public function delete(User $user, User $model): bool|Response
     {
+        return $this->isAdminOrSuperAdmin($user);
     }
 
     /**
      * Determine whether the user can restore the model.
-     *
-     * @param User $user
-     * @param User $model
-     *
-     * @return Response|bool
      */
-    public function restore(User $user, User $model)
+    public function restore(User $user, User $model): bool|Response
     {
+        return false;  // deny by default
     }
 
     /**
      * Determine whether the user can permanently delete the model.
-     *
-     * @param User $user
-     * @param User $model
-     *
-     * @return Response|bool
      */
-    public function forceDelete(User $user, User $model)
+    public function forceDelete(User $user, User $model): bool|Response
     {
+        return false;  // deny by default
     }
 }

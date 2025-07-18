@@ -21,7 +21,7 @@
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
-                        {{ __('🚨 Report a Sighting') }}
+                        {{ __(' Report a Sighting') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
@@ -29,29 +29,34 @@
                     </x-jet-nav-link>
 
                     {{-- New --}}
-                    @if (auth()->user()->role_id != 2)
+                    @if (auth()->user()->role_id==1)
                         <x-jet-nav-link href="{{ route('pages.volunteer') }}" :active="request()->routeIs('pages.volunteer')">
-                            🙋 Join as a Volunteer
+                        Join as a Volunteer
                         </x-jet-nav-link>
                     @endif
 
                     <x-jet-nav-link href="{{ route('pages.virtualAssistant') }}" :active="request()->routeIs('pages.virtualAssistant')">
-                        🤖 Virtual Assistant
+                         Virtual Assistant
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('pages.careTips') }}" :active="request()->routeIs('pages.careTips')">
-                        💊 Animal Care Tips
+                        Animal Care Tips
                     </x-jet-nav-link>
 
 
-                    @can('viewAny', auth()->user())
-                        <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.create')">
-                            {{ __('Manage Users') }}
-                        </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('admin.assignments') }}" :active="request()->routeIs('admin.assignments')">
-                            {{ __('Assignments') }}
-                        </x-jet-nav-link>
-                    @endcan
+                    @auth
+                        @if (auth()->user()->role_id === 3)
+                            <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                                {{ __('Manage Users') }}
+                            </x-jet-nav-link>
+                        @endif
+
+                        @can('viewAny', \App\Models\User::class)
+                            <x-jet-nav-link href="{{ route('admin.assignments') }}" :active="request()->routeIs('admin.assignments')">
+                                {{ __('Assignments') }}
+                            </x-jet-nav-link>
+                        @endcan
+                    @endauth
                 </div>
             </div>
 
@@ -216,7 +221,7 @@
             {{-- new --}}
             @if (auth()->user()->role_id != 2)
                 <x-jet-nav-link href="{{ route('pages.volunteer') }}" :active="request()->routeIs('pages.volunteer')">
-                    🙋 Join as a Volunteer
+                     Join as a Volunteer
                 </x-jet-nav-link>
             @endif
 

@@ -37,6 +37,7 @@
                 <select id="is_private" class="block border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 w-full" wire:model.lazy="role_id">
                 	<option value="1">User</option>
 	                <option value="2">Admin</option>
+                    <option value="3">Super Admin</option>
                 <select>
             </div>
 

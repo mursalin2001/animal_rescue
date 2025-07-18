@@ -9,20 +9,32 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Post;
 use App\Models\volunteer;
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class AssignmentController extends Controller
 {
-    public function index()
+   public function index()
 {
+    $authAddress = Auth::user()->address;
 
-    $upazilas = [Auth::user()->address];
+    // Get all volunteers whose address matches the auth user's address
+    $matchedVolunteers = Volunteer::where('address', $authAddress)->get();
 
-    $posts = Post::whereIn('upazila', $upazilas)->with('user')->get();
-    
-    $volunteer_upazila = Volunteer::all();
+    // Extract their user IDs
+    $matchedUserIds = $matchedVolunteers->pluck('user_id');
 
-    return view('admin.assignments', ['assignments' => $posts, 'volunteers' => $volunteer_upazila]);
+    // Get the user data for those IDs
+    $matchedUsers = User::whereIn('id', $matchedUserIds)->get();
+
+    // Get posts for the same upazila
+    $posts = Post::where('upazila', $authAddress)->with('user')->get();
+
+    return view('admin.assignments', [
+        'assignments' => $posts,
+        'user_data' => $matchedUsers,
+        'volunteers' => $matchedVolunteers,
+    ]);
 }
+
 
  public function updateStatus(Request $request, $id)
 {

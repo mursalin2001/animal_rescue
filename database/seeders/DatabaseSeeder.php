@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RoleSeeder::class);
 
-        // আগের admin থাকলে delete করবে (এটা না থাকায় error আসছে)
+        
         User::where('email', 'admin@gmail.com')->delete();
 
-        // তারপর নতুনভাবে create করবে
+        
         User::factory()->create([
             'name' => 'Admin User',
             'username' => 'admin',
@@ -28,5 +28,20 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
         ]);
+        
+        
+        
+        User::where('email', 'superadmin@gmail.com')->delete();
+        User::factory()->create([
+            'name' => 'Super Admin',
+            'username' => 'superadmin',
+            'email' => 'superadmin@gmail.com',
+            'email_verified_at' => now(),
+            'role_id' => 3,
+            'phone' => '01800000000',
+            'address' => 'Dhaka',
+            'password' => bcrypt('superpassword'),
+            'remember_token' => Str::random(10),
+        ]);;
     }
 }

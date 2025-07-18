@@ -48,7 +48,7 @@ class Edit extends Component
             'username' => ['string', 'max:60', Rule::unique('users')->ignore($this->user->id)],
             'email' => ['required', 'max:225', Rule::unique('users')->ignore($this->user->id)],
             'is_private' => ['nullable', 'in:0,1'],
-            'role_id' => ['required', 'in:1,2'],
+            'role_id' => ['required', 'in:1,2,3'],
             'password' => 'nullable|string|max:225|confirmed',
         ]);
 

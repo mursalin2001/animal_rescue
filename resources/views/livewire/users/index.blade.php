@@ -72,8 +72,10 @@
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 @if($user->role_id === 2)
 	                Admin
-                @else
-	                User
+                @elseif ($user->role_id===3)
+	                Super Admin
+                  @else
+                  User
                 @endif
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

@@ -93,4 +93,9 @@ class User extends Authenticatable
     {
         return $this->role_id === 2;
     }
+
+    public function isSuperAdmin(): bool
+{
+    return $this->role_id === 3; // example role_id for super admin
+}
 }

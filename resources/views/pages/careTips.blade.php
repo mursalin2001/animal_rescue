@@ -5,21 +5,60 @@
         </h2>
     </x-slot>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-    <div class="bg-white h-48 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-        <p class="text-gray-700 font-semibold">মৃদু বিষধর, বিষধর ও নির্বিষ সাপের প্রজাতি</p>
+ <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+    <!-- Card 1 -->
+    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
+        <div class="p-4 flex flex-col items-center">
+            <div class="overflow-hidden rounded-lg mb-4">
+                <img src="{{ asset('images/snake_info/snake_logo.jpg') }}" alt="Image 1"
+                     class="object-cover w-full h-full">
+            </div>
+            <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
+                মৃদু বিষধর, বিষধর ও নির্বিষ সাপের প্রজাতি
+            </p>
+        </div>
     </div>
-    <div class="bg-white h-48 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-        <p class="text-gray-700 font-semibold">সর্পদংশনের লক্ষন, উপসর্গ ও করনীয়</p>
+
+    <!-- Card 2 -->
+    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
+        <div class="p-4 flex flex-col items-center">
+            <div class="overflow-hidden rounded-lg mb-4">
+                <img src="{{ asset('images/snake_info/what_to_do.jpg') }}" alt="Image 1"
+                     class="object-cover w-full h-full">
+            </div>
+            <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
+                সর্পদংশনের লক্ষন, উপসর্গ ও করনীয়
+            </p>
+        </div>
     </div>
-    <div class="bg-white h-48 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-        <p class="text-gray-700 font-semibold">সর্পদংশনের প্রাথমিক চিকিৎসা </p>
+
+    <!-- Card 3 -->
+    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
+        <div class="p-4 flex flex-col items-center">
+            <div class="overflow-hidden rounded-lg mb-4">
+                <img src="{{ asset('images/snake_info/snake_logo.jpg') }}" alt="Image 1"
+                     class="object-cover w-full h-full">
+            </div>
+            <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
+                সর্পদংশনের প্রাথমিক চিকিৎসা
+            </p>
+        </div>
     </div>
-    <div class="bg-white h-48 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-        <p class="text-gray-700 font-semibold">সাপ সংক্রান্ত কুসংস্কার ও সাপের গুরুত্ব</p>
+
+    <!-- Card 4 -->
+    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
+        <div class="p-4 flex flex-col items-center">
+            <div class="overflow-hidden rounded-lg mb-4">
+                <img src="{{ asset('images/snake_info/snake_logo.jpg') }}" alt="Image 1"
+                     class="object-cover w-full h-full">
+            </div>
+            <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
+                সাপ সংক্রান্ত কুসংস্কার ও সাপের গুরুত্ব
+            </p>
+        </div>
     </div>
-    
 </div>
+
 
 
     <!-- Header -->
