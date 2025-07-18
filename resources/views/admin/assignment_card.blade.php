@@ -9,7 +9,7 @@
         View Details
     </a>
 
-    @if (auth()->user() && auth()->user()->role_id == 2)
+    @if (auth()->user() && auth()->user()->role_id != 1)
         <form action="{{ route('posts.updateStatus', $post->id) }}" method="POST" class="mt-4">
             @csrf
             <label for="status_{{ $post->id }}" class="block mb-1 text-sm font-semibold text-gray-700">Change

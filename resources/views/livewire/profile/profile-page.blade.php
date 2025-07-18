@@ -31,10 +31,10 @@
 			  <span wire:loading.remove wire:target="incrementFollow({{ $user->id }})">Unfollow</span>
 		    </button>
 			@else
-			<button type="button" wire:click="incrementFollow({{ $user->id }})" class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+			{{-- <button type="button" wire:click="incrementFollow({{ $user->id }})" class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
 	      	<span wire:loading wire:target="incrementFollow({{ $user->id }})">Following...</span>
 			  <span wire:loading.remove wire:target="incrementFollow({{ $user->id }})">Follow</span>
-		    </button>
+		    </button> --}}
 			@endif
 	  @endcan
 		</div>
@@ -43,14 +43,14 @@
       <div class="mt-6 pt-3 flex flex-wrap mx-6 border-t">
         <div
 		class="py-4 flex justify-center items-center w-full divide-x divide-gray-400 divide-solid">
-			<span class="text-center px-4">
+			{{-- <span class="text-center px-4">
 				<span class="font-bold text-gray-700">{{ $followersCount }}</span>
 				<span class="text-gray-600">Followers</span>
 			</span>
 			<span class="text-center px-4">
 				<span class="font-bold text-gray-700">{{ $followingsCount }}</span>
 				<span class="text-gray-600">Followings</span>
-			</span>
+			</span> --}}
 
 			<span class="text-center px-4">
 				<span class="font-bold text-gray-700"> {{ $postsCount }} </span>

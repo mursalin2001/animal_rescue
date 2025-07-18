@@ -5,59 +5,80 @@
         </h2>
     </x-slot>
 
- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-    <!-- Card 1 -->
-    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
-        <div class="p-4 flex flex-col items-center">
-            <div class="overflow-hidden rounded-lg mb-4">
-                <img src="{{ asset('images/snake_info/snake_logo.jpg') }}" alt="Image 1"
-                     class="object-cover w-full h-full">
-            </div>
-            <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
-                মৃদু বিষধর, বিষধর ও নির্বিষ সাপের প্রজাতি
-            </p>
-        </div>
-    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
+            <a href="{{ route('pages.snakeTypeDetails') }}">
 
-    <!-- Card 2 -->
-    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
-        <div class="p-4 flex flex-col items-center">
-            <div class="overflow-hidden rounded-lg mb-4">
-                <img src="{{ asset('images/snake_info/what_to_do.jpg') }}" alt="Image 1"
-                     class="object-cover w-full h-full">
-            </div>
-            <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
-                সর্পদংশনের লক্ষন, উপসর্গ ও করনীয়
-            </p>
-        </div>
-    </div>
+                <div class="p-4 flex flex-col items-center">
+                    <div class="overflow-hidden rounded-lg mb-4 mt-12 pt-6">
+                        <img src="{{ asset('images/snake_info/snake_logo.jpg') }}" alt="Image 1"
+                            class="object-cover w-full h-full">
+                    </div>
+                    <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
+                        মৃদু বিষধর, বিষধর ও নির্বিষ সাপের প্রজাতি
+                    </p>
+                </div>
+            </a>
 
-    <!-- Card 3 -->
-    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
-        <div class="p-4 flex flex-col items-center">
-            <div class="overflow-hidden rounded-lg mb-4">
-                <img src="{{ asset('images/snake_info/snake_logo.jpg') }}" alt="Image 1"
-                     class="object-cover w-full h-full">
-            </div>
-            <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
-                সর্পদংশনের প্রাথমিক চিকিৎসা
-            </p>
         </div>
-    </div>
 
-    <!-- Card 4 -->
-    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
-        <div class="p-4 flex flex-col items-center">
-            <div class="overflow-hidden rounded-lg mb-4">
-                <img src="{{ asset('images/snake_info/snake_logo.jpg') }}" alt="Image 1"
-                     class="object-cover w-full h-full">
-            </div>
-            <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
-                সাপ সংক্রান্ত কুসংস্কার ও সাপের গুরুত্ব
-            </p>
+
+        <!-- Card 2 -->
+
+        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
+            <a href="{{ route('pages.snakebiteSymptoms') }}">
+                <div class="p-4 flex flex-col items-center">
+                    <div class="overflow-hidden rounded-lg mb-4">
+                        <img src="{{ asset('images/snake_info/sickness.jpg') }}" alt="Image 1"
+                            class="object-cover w-full h-full">
+                    </div>
+                    <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
+                        সর্প দংশনের লক্ষন, উপসর্গ ও করনীয়
+                    </p>
+                </div>
+            </a>
         </div>
+
+
+
+        <!-- Card 3 -->
+
+        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
+            <a href="{{ route('pages.snakebiteTreatment') }}">
+                <div class="p-4 flex flex-col items-center">
+                    <div class="overflow-hidden rounded-lg mb-4">
+                        <img src="{{ asset('images/snake_info/treatment.jpg') }}" alt="Image 1"
+                            class="object-cover w-full h-full">
+                    </div>
+                    <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
+                        সর্প দংশনের প্রাথমিক চিকিৎসা
+                    </p>
+                </div>
+            </a>
+        </div>
+
+
+
+        <!-- Card 4 -->
+
+        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
+            <a href="{{ route('pages.importanceOfSnake') }}">
+                <div class="p-4 flex flex-col items-center">
+                    <div class="overflow-hidden rounded-lg mb-4 ">
+                        <img src="{{ asset('images/snake_info/socheton.jpg') }}" alt="Image 1"
+                            class="object-cover w-full h-full">
+                    </div>
+                    <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
+                        সাপ সংক্রান্ত কুসংস্কার ও সাপের গুরুত্ব
+                    </p>
+                </div>
+            </a>
+
+        </div>
+
+
     </div>
-</div>
 
 
 
@@ -198,16 +219,16 @@
     </style>
 
     <script>
-    let currentPage = 0;
-    let pages = [];
+        let currentPage = 0;
+        let pages = [];
 
-    function renderPage(snake, index, total) {
-        const page = document.createElement('div');
-        page.className =
-            'page absolute top-0 left-0 w-full h-full bg-white border border-gray-300 shadow-lg p-4 overflow-y-auto rounded-md transition-transform';
-        page.style.zIndex = total - index;
+        function renderPage(snake, index, total) {
+            const page = document.createElement('div');
+            page.className =
+                'page absolute top-0 left-0 w-full h-full bg-white border border-gray-300 shadow-lg p-4 overflow-y-auto rounded-md transition-transform';
+            page.style.zIndex = total - index;
 
-          page.innerHTML = `
+            page.innerHTML = `
             <div class="flex flex-row">
                 <div class="p-4 m-2">
                     <h3 class="text-xl font-bold mb-2"> ${snake.name} (${snake.english_name})</h3>
@@ -225,59 +246,59 @@
                 ${snake.symptoms ? `<p class="mb-1"><strong>⚠️ লক্ষণ:</strong> ${snake.symptoms}</p>` : ''}
                 <p class="mt-2"><strong>💊 চিকিৎসা:</strong> ${snake.treatment}</p>
             `;
-        return page;
-    }
-
-    function flipToPage(index) {
-        pages.forEach(p => p.classList.remove('flipped'));
-        for (let i = 0; i < index; i++) {
-            pages[i].classList.add('flipped');
+            return page;
         }
-        currentPage = index;
-    }
 
-    function nextPage() {
-        if (pages.length === 0) return;
-        const nextIndex = (currentPage + 1) % pages.length;
-        flipToPage(nextIndex);
-    }
+        function flipToPage(index) {
+            pages.forEach(p => p.classList.remove('flipped'));
+            for (let i = 0; i < index; i++) {
+                pages[i].classList.add('flipped');
+            }
+            currentPage = index;
+        }
 
-    function prevPage() {
-        if (pages.length === 0) return;
-        const prevIndex = (currentPage - 1 + pages.length) % pages.length;
-        flipToPage(prevIndex);
-    }
+        function nextPage() {
+            if (pages.length === 0) return;
+            const nextIndex = (currentPage + 1) % pages.length;
+            flipToPage(nextIndex);
+        }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        // FAQ toggle
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                button.nextElementSibling.classList.toggle('hidden');
-            });
-        });
+        function prevPage() {
+            if (pages.length === 0) return;
+            const prevIndex = (currentPage - 1 + pages.length) % pages.length;
+            flipToPage(prevIndex);
+        }
 
-        // Load snake data
-        fetch('{{ asset('snakes.json') }}')
-            .then(res => res.json())
-            .then(snakes => {
-                const book = document.getElementById('book');
-                snakes.forEach((snake, i) => {
-                    const page = renderPage(snake, i, snakes.length);
-                    book.appendChild(page);
+        document.addEventListener("DOMContentLoaded", () => {
+            // FAQ toggle
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    button.nextElementSibling.classList.toggle('hidden');
                 });
-                pages = document.querySelectorAll('.page');
-            })
-            .catch(error => {
-                alert('❌ ডেটা লোড করা যায়নি!');
-                console.error('Error fetching JSON:', error);
             });
 
-        // Keyboard navigation
-        document.addEventListener('keydown', e => {
-            if (e.key === 'ArrowRight') nextPage();
-            else if (e.key === 'ArrowLeft') prevPage();
+            // Load snake data
+            fetch('{{ asset('snakes.json') }}')
+                .then(res => res.json())
+                .then(snakes => {
+                    const book = document.getElementById('book');
+                    snakes.forEach((snake, i) => {
+                        const page = renderPage(snake, i, snakes.length);
+                        book.appendChild(page);
+                    });
+                    pages = document.querySelectorAll('.page');
+                })
+                .catch(error => {
+                    alert('❌ ডেটা লোড করা যায়নি!');
+                    console.error('Error fetching JSON:', error);
+                });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', e => {
+                if (e.key === 'ArrowRight') nextPage();
+                else if (e.key === 'ArrowLeft') prevPage();
+            });
         });
-    });
-</script>
+    </script>
 
 </x-app-layout>

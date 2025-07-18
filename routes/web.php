@@ -43,6 +43,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/pages/ongoing', [App\Http\Controllers\InfoPageController::class, 'ongoing'])->name('pages.ongoing');
     Route::get('/pages/complete', [App\Http\Controllers\InfoPageController::class, 'complete'])->name('pages.complete');
 
+    // snake
+    Route::get('/pages/snake-type-details', [App\Http\Controllers\SnakeController::class, 'showtype'])->name('pages.snakeTypeDetails');
+    Route::get('/pages/snake-bite-treatment', [App\Http\Controllers\SnakeController::class, 'showtreatment'])->name('pages.snakebiteTreatment');
+    Route::get('/pages/snake-bite-symptom', [App\Http\Controllers\SnakeController::class, 'showsymptom'])->name('pages.snakebiteSymptoms');
+    Route::get('/pages/snake-importance', [App\Http\Controllers\SnakeController::class, 'showimportance'])->name('pages.importanceOfSnake');
+
+
 
 
 
