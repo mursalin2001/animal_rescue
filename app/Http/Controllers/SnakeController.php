@@ -24,4 +24,8 @@ class SnakeController extends Controller
     {
         return view('pages.importanceOfSnake');
     }
+    public function showrabbies()
+    {
+        return view('pages.rabbies');
+    }
 }

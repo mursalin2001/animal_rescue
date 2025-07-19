@@ -76,7 +76,19 @@
             </a>
 
         </div>
-
+        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
+            <a href="{{ route('pages.rabbies') }}">
+                <div class="p-4 flex flex-col items-center">
+                    <div class="overflow-hidden rounded-lg mb-4">
+                        <img src="{{ asset('images/snake_info/sickness.jpg') }}" alt="Image 1"
+                            class="object-cover w-full h-full">
+                    </div>
+                    <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
+                        সর্প দংশনের লক্ষন, উপসর্গ ও করনীয়
+                    </p>
+                </div>
+            </a>
+        </div>
 
     </div>
 

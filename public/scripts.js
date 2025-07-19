@@ -70,7 +70,7 @@ function getLiveLocation() {
                 latitude,
                 longitude
             } = coords;
-            status.textContent = `Location: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`;
+            // status.textContent = `Location: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`;
             Livewire.emit('setLocation', latitude, longitude);
             console.log(latitude, longitude);
         },
