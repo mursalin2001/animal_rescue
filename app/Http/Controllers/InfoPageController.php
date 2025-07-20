@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\volunteer;
 use App\Models\Post;
 use App\Models\Media;
+use App\Models\User;
 use Exception;
 
 
@@ -104,6 +105,7 @@ class InfoPageController extends Controller
     {
         $animal = Post::findOrFail($id);
         $animal_media = Media::findOrFail($id);
-        return view('pages.animal_profile', compact('animal','animal_media'));
+         $volunteers = User::whereIn('role_id', [2, 3])->get();
+        return view('pages.animal_profile', compact('animal','animal_media','volunteers'));
     }
 }

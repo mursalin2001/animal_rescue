@@ -6,17 +6,17 @@
     </x-slot>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-        <!-- Card 1 -->
+        
         <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
             <a href="{{ route('pages.snakeTypeDetails') }}">
 
                 <div class="p-4 flex flex-col items-center">
                     <div class="overflow-hidden rounded-lg mb-4 mt-12 pt-6">
-                        <img src="{{ asset('images/snake_info/snake_logo.jpg') }}" alt="Image 1"
+                        <img src="{{ asset('images/snake_info/images.png') }}" alt="Image 1"
                             class="object-cover w-full h-full">
                     </div>
                     <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
-                        মৃদু বিষধর, বিষধর ও নির্বিষ সাপের প্রজাতি
+                       বন্য প্রাণীর আক্রমন
                     </p>
                 </div>
             </a>
@@ -24,7 +24,7 @@
         </div>
 
 
-        <!-- Card 2 -->
+      
 
         <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
             <a href="{{ route('pages.snakebiteSymptoms') }}">
@@ -42,7 +42,7 @@
 
 
 
-        <!-- Card 3 -->
+     
 
         <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
             <a href="{{ route('pages.snakebiteTreatment') }}">
@@ -60,7 +60,7 @@
 
 
 
-        <!-- Card 4 -->
+      
 
         <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
             <a href="{{ route('pages.importanceOfSnake') }}">
@@ -76,36 +76,24 @@
             </a>
 
         </div>
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full">
-            <a href="{{ route('pages.rabbies') }}">
-                <div class="p-4 flex flex-col items-center">
-                    <div class="overflow-hidden rounded-lg mb-4">
-                        <img src="{{ asset('images/snake_info/sickness.jpg') }}" alt="Image 1"
-                            class="object-cover w-full h-full">
-                    </div>
-                    <p class="text-center text-gray-800 font-semibold text-sm leading-snug">
-                        সর্প দংশনের লক্ষন, উপসর্গ ও করনীয়
-                    </p>
-                </div>
-            </a>
-        </div>
+        
 
     </div>
 
 
 
-    <!-- Header -->
+   
     <div class=" text-black py-6 text-center">
         <h1 class="text-4xl font-bold tracking-wide">🐍 সর্প পরিচিতি</h1>
     </div>
 
-    <!-- Snake Book Viewer -->
+   
     <div class="flex flex-col items-center justify-center py-10 bg-gray-100 overflow-hidden font-sans">
         <div id="book" class="book relative">
-            <!-- Page Content will be injected here by JS -->
+            
         </div>
 
-        <!-- Navigation Buttons -->
+        
         <div class="controls mt-6">
             <button onclick="prevPage()"
                 class="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 mx-2 rounded">
